@@ -1,4 +1,4 @@
-/* Grundlayout */ 
+/* Grundlayout */
 body {
   margin: 0;
   font-family: 'Segoe UI', sans-serif;
@@ -47,7 +47,6 @@ nav a {
   display: block;
 }
 
-/* Dark‑Mode‑Toggle */
 #darkModeToggle {
   background-color: #fefefe;
   border: 2px solid #333;
@@ -90,7 +89,7 @@ h2 {
   margin-bottom: 1.5rem;
 }
 
-/* Highlight-Boxen mit Magenta-Streifen */
+/* Highlights */
 .highlight-box {
   display: flex;
   align-items: center;
@@ -99,17 +98,16 @@ h2 {
   padding: 1rem 1.5rem;
   border-radius: 12px;
   max-width: 600px;
-  width: 90%;
   box-shadow: 0 6px 16px rgba(0, 0, 0, 0.05);
   text-align: left;
-  border-left: 4px solid #e20074;
+  border-left: 6px solid #e20074;
   gap: 0.75rem;
   transition: transform 0.2s ease;
 }
 
 .highlight-box img {
-  width: 20px;
-  height: 20px;
+  width: 24px;
+  height: 24px;
 }
 
 .highlight-box:hover {
@@ -315,7 +313,6 @@ body.dark .highlight-box {
 
 /* Responsive Design */
 @media (max-width: 768px) {
-
   nav {
     flex-direction: column;
     align-items: center;
@@ -339,6 +336,9 @@ body.dark .highlight-box {
     display: block;
     width: 100%;
     padding: 0.75rem 0;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    font-size: 1rem;
   }
 
   #darkModeToggle {
@@ -361,13 +361,12 @@ body.dark .highlight-box {
   .highlight-box {
     font-size: 0.95rem;
     padding: 0.75rem 1rem;
-    width: 100%;
-    max-width: none;
+    border-left-width: 5px;
   }
 
   .highlight-box img {
-    width: 18px;
-    height: 18px;
+    width: 20px;
+    height: 20px;
   }
 
   .profile-pic {
@@ -383,4 +382,3 @@ body.dark .highlight-box {
     gap: 1.5rem;
   }
 }
-
