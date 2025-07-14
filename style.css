@@ -1,4 +1,4 @@
-/* Grundlayout */
+/* Grundlayout */ 
 body {
   margin: 0;
   font-family: 'Segoe UI', sans-serif;
@@ -47,6 +47,7 @@ nav a {
   display: block;
 }
 
+/* Dark‑Mode‑Toggle */
 #darkModeToggle {
   background-color: #fefefe;
   border: 2px solid #333;
@@ -89,7 +90,7 @@ h2 {
   margin-bottom: 1.5rem;
 }
 
-/* Highlights */
+/* Highlight-Boxen mit Magenta-Streifen */
 .highlight-box {
   display: flex;
   align-items: center;
@@ -98,6 +99,7 @@ h2 {
   padding: 1rem 1.5rem;
   border-radius: 12px;
   max-width: 600px;
+  width: 90%;
   box-shadow: 0 6px 16px rgba(0, 0, 0, 0.05);
   text-align: left;
   border-left: 4px solid #e20074;
@@ -337,9 +339,6 @@ body.dark .highlight-box {
     display: block;
     width: 100%;
     padding: 0.75rem 0;
-    background-color: rgba(255, 255, 255, 0.1);
-    border-radius: 12px;
-    font-size: 1rem;
   }
 
   #darkModeToggle {
@@ -362,6 +361,8 @@ body.dark .highlight-box {
   .highlight-box {
     font-size: 0.95rem;
     padding: 0.75rem 1rem;
+    width: 100%;
+    max-width: none;
   }
 
   .highlight-box img {
@@ -382,3 +383,4 @@ body.dark .highlight-box {
     gap: 1.5rem;
   }
 }
+
