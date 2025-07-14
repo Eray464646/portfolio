@@ -1,4 +1,5 @@
-/* Grundlayout */
+
+/* Grundlayout */ 
 body {
   margin: 0;
   font-family: 'Segoe UI', sans-serif;
@@ -89,12 +90,12 @@ h2 {
   margin-bottom: 1.5rem;
 }
 
-/* Highlights */
+/* Highlight Boxen */
 .highlight-box {
   display: flex;
   align-items: center;
   background-color: #fff;
-  margin: 0.5rem auto;
+  margin: 1rem auto;
   padding: 1rem 1.5rem;
   border-radius: 12px;
   max-width: 600px;
@@ -112,6 +113,12 @@ h2 {
 
 .highlight-box:hover {
   transform: scale(1.02);
+}
+
+body.dark .highlight-box {
+  background-color: #1a1a1a;
+  border-left-color: #ff66b2;
+  color: #eee;
 }
 
 /* Social Icons */
@@ -306,11 +313,6 @@ body.dark .download-btn {
   color: white;
 }
 
-body.dark .highlight-box {
-  background-color: #1a1a1a;
-  border-left-color: #ff66b2;
-}
-
 /* Responsive Design */
 @media (max-width: 768px) {
   nav {
@@ -361,7 +363,7 @@ body.dark .highlight-box {
   .highlight-box {
     font-size: 0.95rem;
     padding: 0.75rem 1rem;
-    border-left-width: 5px;
+    margin: 0.75rem auto;
   }
 
   .highlight-box img {
