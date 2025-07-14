@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Projekte – Eray Yasar</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <nav>
+      <ul>
+        <li><a href="index.html">Start</a></li>
+        <li><a href="certifications.html">Zertifikate</a></li>
+        <li><a href="projects.html">Projekte</a></li>
+        <li><a href="contact.html">Kontakt</a></li>
+      </ul>
+      <button id="darkModeToggle" title="Dark Mode umschalten">🌙</button>
+    </nav>
+  </header>
+
+  <section class="section-container">
+    <h1>Projekte</h1>
+    <div class="card-grid">
+      <div class="card">
+        <h3>Python Automatisierung</h3>
+        <p>Skript zur Automatisierung von Reporting-Prozessen für Telekom-Projekte. Reduziert manuellen Aufwand und spart Zeit.</p>
+      </div>
+      <div class="card">
+        <h3>SQL Analytics Dashboard</h3>
+        <p>Datenanalyse mit SQL + Power BI. Visualisierung von User-Verhalten und Traffic für interne Stakeholder.</p>
+      </div>
+      <div class="card">
+        <h3>AWS Cloud Migration</h3>
+        <p>Mitarbeit bei Proof-of-Concept für AWS-Infrastruktur. Einrichtung, Sicherheit, Deployment-Prozesse.</p>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    if (localStorage.getItem("darkMode") === "enabled") {
+      document.body.classList.add("dark");
+    }
+
+    const toggle = document.getElementById("darkModeToggle");
+    if (toggle) {
+      toggle.onclick = function () {
+        document.body.classList.toggle("dark");
+        const mode = document.body.classList.contains("dark") ? "enabled" : "disabled";
+        localStorage.setItem("darkMode", mode);
+      };
+    }
+  </script>
+</body>
+</html>
