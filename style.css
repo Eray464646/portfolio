@@ -1,216 +1,580 @@
-<!DOCTYPE html> 
-<html lang="de">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Zertifikate</title>
-  <link rel="stylesheet" href="style.css" />
-</head>
-<body class="certifications">
-  <header>
-    <nav>
-      <a href="index.html">Startseite</a>
-      <a href="certifications.html">Zertifikate</a>
-      <a href="projects.html">Projekte</a>
-      <a href="contact.html">Kontakt</a>
-      <button id="darkModeToggle">🌙</button>
-    </nav>
-  </header>
+/* Grundlayout */
+body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #f3f3f6;
+  color: #333;
+}
 
-  <main>
-    <section class="highlight-box">
-      <h1 class="text-center">Meine Zertifikate</h1>
-    </section>
+body.dark {
+  background-color: #121212;
+  color: #eaeaea;
+}
 
-    <!-- Suchfeld -->
-    <div class="cert-search">
-      <input
-        type="text"
-        id="searchInput"
-        placeholder="Suche nach Titel oder Kategorie …"
-      />
-    </div>
+/* Navigation */
+nav {
+  background-color: #e20074;
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+}
 
-    <!-- 📘 Online-Zertifikate (Coursera) -->
-    <section class="cert-section">
-      <h2 class="cert-category">📘 Online-Zertifikate (Coursera)</h2>
-      <div class="cert-grid">
-        <div class="cert-card" data-title="python coursera">
-          <div class="cert-preview">
-            <img
-              src="assets/img/Vorschaubild_CourseraPython.png"
-              alt="Vorschau Python (Coursera)"
-            />
-          </div>
-          <h3>Python (Coursera)</h3>
-          <button class="btn" data-pdf="assets/certificates/Coursera_Python.pdf">
-            PDF ansehen
-          </button>
-        </div>
-        <div class="cert-card" data-title="cloud analytics coursera">
-          <div class="cert-preview">
-            <img
-              src="assets/img/Vorschaubild_CourseraGoogleCloud.png"
-              alt="Vorschau Cloud Analytics (Coursera)"
-            />
-          </div>
-          <h3>Cloud Analytics (Coursera)</h3>
-          <button class="btn" data-pdf="assets/certificates/Coursera_Cloud_Analytics.pdf">
-            PDF ansehen
-          </button>
-        </div>
-      </div>
-    </section>
 
-    <!-- 🤝 Freiwillige Tätigkeiten -->
-    <section class="cert-section">
-      <h2 class="cert-category">🤝 Freiwillige Tätigkeiten</h2>
-      <div class="cert-grid">
-        <div class="cert-card" data-title="datev praktikum">
-          <div class="cert-preview">
-            <img
-              src="assets/img/Vorschaubild_DATEV.png"
-              alt="Vorschau DATEV Praktikum 08/2023"
-            />
-          </div>
-          <h3>DATEV Praktikum 08/2023</h3>
-          <button class="btn" data-pdf="assets/certificates/DATEV_freiwilligesPraktikum_082023.pdf">
-            PDF ansehen
-          </button>
-        </div>
-        <div class="cert-card" data-title="fssj freiwilliges soziales jahr">
-          <div class="cert-preview">
-            <img
-              src="assets/img/Vorschaubild_FSSJ.png"
-              alt="Vorschau Freiwilliges Soziales Schuljahr (FSSJ)"
-            />
-          </div>
-          <h3>Freiwilliges Soziales Schuljahr (FSSJ)</h3>
-          <button class="btn" data-pdf="assets/certificates/Fssj_2017.pdf">
-            PDF ansehen
-          </button>
-        </div>
-      </div>
-    </section>
+nav ul {
+  display: flex;
+  gap: 1.5rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
 
-    <!-- 🏫 Fachoberschule – Praktika -->
-    <section class="cert-section">
-      <h2 class="cert-category">🏫 Fachoberschule – Praktika</h2>
-      <div class="cert-grid">
-        <div class="cert-card" data-title="fos praktikum schweiger">
-          <div class="cert-preview">
-            <img
-              src="assets/img/Vorschaubild_Schweiger.png"
-              alt="Vorschau FOS Praktikum Schweiger (2022)"
-            />
-          </div>
-          <h3>FOS Praktikum Schweiger (2022)</h3>
-          <button class="btn" data-pdf="assets/certificates/Schweiger_FOS_Praktikum_022022-072022.pdf">
-            PDF ansehen
-          </button>
-        </div>
-        <div class="cert-card" data-title="fos praktikum rewe">
-          <div class="cert-preview">
-            <img
-              src="assets/img/Vorschaubild_Rewe.png"
-              alt="Vorschau FOS Praktikum Rewe (2021–2022)"
-            />
-          </div>
-          <h3>FOS Praktikum Rewe (2021–2022)</h3>
-          <button class="btn" data-pdf="assets/certificates/Rewe_FOS_Praktikum_092021-092022.pdf">
-            PDF ansehen
-          </button>
-        </div>
-      </div>
-    </section>
+nav li {
+  border-radius: 14px;
+  background-color: rgba(255, 255, 255, 0.1);
+  padding: 0.5rem 1rem;
+  transition: background-color 0.3s, transform 0.2s;
+}
 
-    <!-- 🎓 Schülerpraktika (ohne Vorschaubild) -->
-    <section class="cert-section">
-      <h2 class="cert-category">🎓 Schülerpraktika</h2>
-      <div class="cert-grid">
-        <div class="cert-card no-preview" data-title="apotheke schülerpraktikum">
-          <h3>Apotheke Schülerpraktikum</h3>
-          <button class="btn" data-pdf="assets/certificates/Apotheke_Schuelerpraktikum_112018.pdf">
-            PDF ansehen
-          </button>
-        </div>
-        <div class="cert-card no-preview" data-title="edeka schülerpraktikum">
-          <h3>Edeka Schülerpraktikum</h3>
-          <button class="btn" data-pdf="assets/certificates/Edeka_Schuelerpraktikum_072019.pdf">
-            PDF ansehen
-          </button>
-        </div>
-        <div class="cert-card no-preview" data-title="opel schülerpraktikum">
-          <h3>Opel Schülerpraktikum</h3>
-          <button class="btn" data-pdf="assets/certificates/Opel_Schuelerpraktikum_112016.pdf">
-            PDF ansehen
-          </button>
-        </div>
-        <div class="cert-card no-preview" data-title="englisch bob">
-          <h3>BOB – Englisch</h3>
-          <button class="btn" data-pdf="assets/certificates/Englisch_BOB_2017.pdf">
-            PDF ansehen
-          </button>
-        </div>
-      </div>
-    </section>
+nav li:hover {
+  background-color: rgba(255, 255, 255, 0.25);
+  transform: translateY(-2px);
+}
 
-    <!-- Lightbox für PDF -->
-    <div class="lightbox-overlay" id="lightbox">
-      <div class="lightbox-content">
-        <button class="lightbox-close" id="lightboxClose">Schließen</button>
-        <iframe id="lightboxFrame" src=""></iframe>
-      </div>
-    </div>
-  </main>
+nav a {
+  text-decoration: none;
+  color: white;
+  font-weight: bold;
+  display: block;
+}
 
-  <script>
-    // Dark Mode beim Laden anwenden
-    const toggle = document.getElementById("darkModeToggle");
-    if (localStorage.getItem("darkMode") === "true") {
-      document.body.classList.add("dark");
-    }
-    toggle.addEventListener("click", () => {
-      document.body.classList.toggle("dark");
-      localStorage.setItem(
-        "darkMode",
-        document.body.classList.contains("dark")
-      );
-    });
+#darkModeToggle {
+  background-color: #fefefe;
+  border: 2px solid #333;
+  border-radius: 10px;
+  padding: 0.5rem 0.8rem;
+  cursor: pointer;
+  font-size: 1.1rem;
+  transition: all 0.3s;
+}
 
-    // Suche
-    document.getElementById("searchInput").addEventListener("input", function () {
-      const search = this.value.toLowerCase();
-      document.querySelectorAll(".cert-card").forEach((card) => {
-        card.classList.toggle(
-          "hidden",
-          !card.getAttribute("data-title").includes(search)
-        );
-      });
-    });
+body.dark #darkModeToggle {
+  background-color: #222;
+  color: white;
+  border-color: white;
+}
 
-    // Lightbox
-    const lightbox = document.getElementById("lightbox");
-    const frame = document.getElementById("lightboxFrame");
+/* Hero */
+.hero {
+  text-align: center;
+  padding: 3rem 1rem;
+}
 
-    document.querySelectorAll(".cert-card .btn").forEach((btn) => {
-      btn.addEventListener("click", () => {
-        frame.src = btn.getAttribute("data-pdf");
-        lightbox.classList.add("active");
-      });
-    });
+.profile-pic {
+  width: 200px;
+  height: auto;
+  border-radius: 12px;
+  object-fit: contain;
+  margin-bottom: 1rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
 
-    document.getElementById("lightboxClose").addEventListener("click", () => {
-      lightbox.classList.remove("active");
-      frame.src = "";
-    });
+h1 {
+  font-size: 2.4rem;
+  margin: 0.5rem 0;
+}
 
-    lightbox.addEventListener("click", (e) => {
-      if (e.target === lightbox) {
-        lightbox.classList.remove("active");
-        frame.src = "";
-      }
-    });
-  </script>
-</body>
-</html>
+h2 {
+  font-weight: normal;
+  color: #666;
+  margin-bottom: 1.5rem;
+}
+
+/* Highlight-Boxen */
+.highlight-box {
+  display: flex;
+  align-items: center;
+  background-color: #fff;
+  margin: 0.5rem auto;
+  padding: 1rem 1.5rem;
+  border-radius: 12px;
+  max-width: 600px;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.05);
+  text-align: left;
+  border-left: 6px solid #e20074;
+  gap: 0.75rem;
+  transition: transform 0.2s ease;
+}
+
+.highlight-box img {
+  width: 24px;
+  height: 24px;
+}
+
+.highlight-box:hover {
+  transform: scale(1.02);
+}
+
+body.dark .highlight-box {
+  background-color: #1a1a1a;
+  border-left-color: #ff66b2;
+}
+
+/* Social Icons */
+.social-links {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  margin-top: 1.5rem;
+}
+
+.social-links a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 56px;
+  height: 56px;
+}
+
+.icon {
+  width: 48px;
+  height: 48px;
+  object-fit: contain;
+  transition: transform 0.2s ease;
+}
+
+.linkedin-icon {
+  width: 48px;
+  height: 48px;
+}
+
+.icon:hover {
+  transform: scale(1.1);
+}
+
+.icon-dark {
+  display: none;
+}
+
+body.dark .icon-light {
+  display: none;
+}
+
+body.dark .icon-dark {
+  display: inline;
+}
+
+/* Sektionen allgemein */
+.section-container {
+  padding: 3rem 1rem;
+  max-width: 1100px;
+  margin: auto;
+}
+
+.card-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  justify-content: center;
+  margin-top: 2rem;
+}
+
+.card {
+  background-color: #fff;
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  flex: 1 1 280px;
+}
+
+body.dark .card {
+  background-color: #1f1f1f;
+  color: white;
+}
+
+/* Kontaktformular */
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  max-width: 600px;
+  margin: auto;
+}
+
+input,
+textarea {
+  padding: 0.75rem;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  font-size: 1rem;
+}
+
+button {
+  padding: 0.75rem;
+  border: none;
+  border-radius: 6px;
+  background-color: #e20074;
+  color: #fff;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #c20065;
+}
+
+/* Lebenslauf */
+.cv-section h2 {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 2rem;
+}
+
+.cv-image-container {
+  display: flex;
+  justify-content: center;
+}
+
+.cv-image-container img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  cursor: zoom-in;
+}
+
+.download-btn {
+  display: inline-block;
+  padding: 0.75rem 1.5rem;
+  background-color: #333;
+  color: white;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: background-color 0.3s;
+}
+
+.download-btn:hover {
+  background-color: #111;
+}
+
+/* Projekt-Überschrift (seriöse Box) */
+.projekt-headline-clean {
+  background-color: #ffffff;
+  padding: 1.2rem 1.5rem;
+  text-align: center;
+  border-radius: 12px;
+  max-width: 500px;
+  margin: 2rem auto 2.5rem auto;
+  border: 1px solid #ddd;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.06);
+}
+
+.projekt-headline-clean h2 {
+  margin: 0;
+  font-size: 1.75rem;
+  color: #111;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+body.dark .projekt-headline-clean {
+  background-color: #1e1e1e;
+  border-color: #444;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+}
+
+body.dark .projekt-headline-clean h2 {
+  color: #fff;
+}
+
+/* Projektkarten */
+.project-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+  padding: 2rem 1rem;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.project-card {
+  border: 1px solid #ccc;
+  border-radius: 12px;
+  overflow: hidden;
+  background-color: #fff;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  transition: transform 0.2s ease;
+}
+
+.project-card:hover {
+  transform: translateY(-4px);
+}
+
+.project-info {
+  padding: 1.5rem;
+  background-color: #f9f9f9;
+  border-bottom: 1px solid #ddd;
+}
+
+.project-info h3 {
+  margin-bottom: 0.5rem;
+  font-size: 1.25rem;
+  color: #e20074;
+}
+
+.project-info p {
+  margin: 0;
+  color: #333;
+}
+
+.project-card img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+body.dark .project-card {
+  background-color: #1e1e1e;
+  border-color: #444;
+}
+
+body.dark .project-info {
+  background-color: #2a2a2a;
+  border-color: #444;
+}
+
+body.dark .project-info h3 {
+  color: #ff82b2;
+}
+
+body.dark .project-info p {
+  color: #ccc;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  nav {
+    flex-direction: column;
+    padding: 0.5rem 1rem;
+  }
+
+  nav ul {
+    flex-direction: column;
+    width: 100%;
+    gap: 0.5rem;
+    align-items: center;
+  }
+
+  nav li {
+    width: 100%;
+    text-align: center;
+  }
+
+  .hero h1 {
+    font-size: 1.8rem;
+  }
+
+  .hero h2 {
+    font-size: 1rem;
+  }
+
+  .highlight-box {
+    font-size: 0.95rem;
+    padding: 0.75rem 1rem;
+  }
+
+  .profile-pic {
+    width: 150px;
+  }
+
+  .download-btn {
+    font-size: 0.95rem;
+    padding: 0.6rem 1rem;
+  }
+}
+
+/* Zertifikatsbereich */
+.cert-section {
+  margin: 2rem auto;
+  padding: 0 1rem;
+  max-width: 1200px;
+}
+
+.cert-category {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  color: #e20074;
+}
+
+.cert-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.5rem;
+}
+
+.cert-card {
+  background-color: #ffffff;
+  padding: 1rem;
+  border-radius: 1rem;
+  box-shadow: 0 0 10px rgba(0,0,0,0.08);
+  transition: transform 0.3s, background-color 0.3s;
+  overflow: hidden;
+}
+
+.cert-card:hover {
+  transform: scale(1.02);
+}
+
+.cert-card h3 {
+  margin-bottom: 0.5rem;
+}
+
+body.dark .cert-card {
+  background-color: #1f1f1f;
+}
+
+/* Button-Stil */
+.cert-card .btn {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  background-color: #e20074;
+  color: white;
+  border-radius: 0.5rem;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 0.95rem;
+  border: none;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.cert-card .btn:hover {
+  background-color: #c00060;
+}
+
+/* Suchfeld */
+.cert-search {
+  max-width: 500px;
+  margin: 2rem auto;
+  text-align: center;
+}
+
+.cert-search input {
+  width: 100%;
+  padding: 0.6rem;
+  border: 1px solid #ccc;
+  border-radius: 0.5rem;
+  font-size: 1rem;
+  background-color: #fff;
+  color: #000;
+}
+
+body.dark .cert-search input {
+  background-color: #2a2a2a;
+  color: #f5f5f5;
+  border-color: #555;
+}
+
+/* Vorschau-Bilder */
+.cert-preview {
+  width: 100%;
+  height: 180px;
+  overflow: hidden;
+  background: #f5f5f5;
+  border-top-left-radius: 1rem;
+  border-top-right-radius: 1rem;
+}
+
+.cert-preview img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Lightbox PDF-Vorschau */
+.lightbox-overlay {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0, 0, 0, 0.8);
+  justify-content: center;
+  align-items: center;
+}
+
+.lightbox-overlay.active {
+  display: flex;
+}
+
+.lightbox-content {
+  width: 90%;
+  max-width: 960px;
+  height: 90%;
+  background: #fff;
+  border-radius: 10px;
+  overflow: hidden;
+  position: relative;
+}
+
+.lightbox-content iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+body.dark .lightbox-content {
+  background-color: #1e1e1e;
+}
+
+.lightbox-close {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  background: #e20074;
+  color: white;
+  padding: 0.4rem 0.8rem;
+  border: none;
+  font-size: 1rem;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+/* Utility */
+.hidden {
+  display: none !important;
+}
+/* 1) Vorschaubilder zeigen oben an und schneiden unten ab */
+.cert-preview img {
+  object-fit: cover;
+  object-position: top center; /* Anker oben, Bild unten beschneiden */
+}
+
+/* 2) Verberge .cert-preview in Cards mit .no-preview */
+.cert-card.no-preview .cert-preview {
+  display: none;
+}
+
+/* Abstand schaffen, damit Inhalt nicht überdeckt wird */
+body {
+  padding-top: 90px;
+}
+
+@media (max-width: 768px) {
+  body.certifications {
+    padding-top: 320px;
+  }
+
+  body {
+    padding-top: 260px;
+  }
+}
