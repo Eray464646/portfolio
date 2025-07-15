@@ -559,3 +559,18 @@ body.dark .lightbox-content {
 .cert-card.no-preview .cert-preview {
   display: none;
 }
+/* ===== Fixierte Navbar beim Scrollen ===== */
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  background-color: #e20074; /* Telekom-Magenta */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Platz für fixierte Navbar schaffen */
+body {
+  padding-top: 60px;
+}
