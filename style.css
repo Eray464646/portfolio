@@ -20,10 +20,14 @@ nav {
   align-items: center;
   gap: 2rem;
   flex-wrap: wrap;
-  position: sticky;
+  position: fixed;
   top: 0;
-  z-index: 100;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
 }
+
 
 nav ul {
   display: flex;
@@ -559,33 +563,14 @@ body.dark .lightbox-content {
 .cert-card.no-preview .cert-preview {
   display: none;
 }
-/* ===== Fixierte Navbar beim Scrollen ===== */
-nav {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  z-index: 1000;
-  background-color: #e20074; /* Telekom-Magenta */
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
 
-/* Platz für fixierte Navbar schaffen */
+/* Abstand schaffen, damit Inhalt nicht überdeckt wird */
 body {
-  padding-top: 60px;
+  padding-top: 90px;
 }
-/* Sicherstellen, dass Navbar auch mobil fixiert bleibt */
-@media screen and (max-width: 768px) {
-  nav {
-    position: fixed !important;
-    top: 0;
-    left: 0;
-    width: 100%;
-    z-index: 1000;
-  }
 
+@media (max-width: 768px) {
   body {
-    padding-top: 60px !important;
+    padding-top: 110px;
   }
 }
-
