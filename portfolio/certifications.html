@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Zertifikate</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <nav>
+      <a href="index.html">Startseite</a>
+      <a href="certifications.html">Zertifikate</a>
+      <a href="projects.html">Projekte</a>
+      <a href="contact.html">Kontakt</a>
+      <button id="darkModeToggle">🌙</button>
+    </nav>
+  </header>
+
+  <main>
+    <section class="highlight-box">
+      <h1 class="text-center">Meine Zertifikate</h1>
+    </section>
+
+    <!-- Suchfeld -->
+    <div class="cert-search">
+      <input
+        type="text"
+        id="searchInput"
+        placeholder="Suche nach Titel oder Kategorie …"
+      />
+    </div>
+
+    <!-- 📘 Online-Zertifikate (Coursera) -->
+    <section class="cert-section">
+      <h2 class="cert-category">📘 Online-Zertifikate (Coursera)</h2>
+      <div class="cert-grid">
+        <div class="cert-card" data-title="python coursera">
+          <div class="cert-preview">
+            <img
+              src="assets/img/Vorschaubild_CourseraPython.png"
+              alt="Vorschau Python (Coursera)"
+            />
+          </div>
+          <h3>Python (Coursera)</h3>
+          <button class="btn" data-pdf="assets/certificates/Coursera Python.pdf">
+            PDF ansehen
+          </button>
+        </div>
+        <div class="cert-card" data-title="cloud analytics coursera">
+          <div class="cert-preview">
+            <img
+              src="assets/img/Vorschaubild_CourseraGoogleCloud.png"
+              alt="Vorschau Cloud Analytics (Coursera)"
+            />
+          </div>
+          <h3>Cloud Analytics (Coursera)</h3>
+          <button class="btn" data-pdf="assets/certificates/Coursera Cloud Analytics.pdf">
+            PDF ansehen
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- 🤝 Freiwillige Tätigkeiten -->
+    <section class="cert-section">
+      <h2 class="cert-category">🤝 Freiwillige Tätigkeiten</h2>
+      <div class="cert-grid">
+        <div class="cert-card" data-title="datev praktikum">
+          <div class="cert-preview">
+            <img
+              src="assets/img/Vorschaubild_DATEV.png"
+              alt="Vorschau DATEV Praktikum 08/2023"
+            />
+          </div>
+          <h3>DATEV Praktikum 08/2023</h3>
+          <button class="btn" data-pdf="assets/certificates/DATEV_freiwilligesPraktikum_08.2023.pdf">
+            PDF ansehen
+          </button>
+        </div>
+        <div class="cert-card" data-title="fssj freiwilliges soziales jahr">
+          <div class="cert-preview">
+            <img
+              src="assets/img/Vorschaubild_FSSJ.png"
+              alt="Vorschau Freiwilliges Soziales Schuljahr (FSSJ)"
+            />
+          </div>
+          <h3>Freiwilliges Soziales Schuljahr (FSSJ)</h3>
+          <button class="btn" data-pdf="assets/certificates/Fssj_2017.pdf">
+            PDF ansehen
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- 🏫 Fachoberschule – Praktika -->
+    <section class="cert-section">
+      <h2 class="cert-category">🏫 Fachoberschule – Praktika</h2>
+      <div class="cert-grid">
+        <div class="cert-card" data-title="fos praktikum schweiger">
+          <div class="cert-preview">
+            <img
+              src="assets/img/Vorschaubild_Schweiger.png"
+              alt="Vorschau FOS Praktikum Schweiger (2022)"
+            />
+          </div>
+          <h3>FOS Praktikum Schweiger (2022)</h3>
+          <button class="btn" data-pdf="assets/certificates/Schweiger_FOS_Praktikum 02.2022–07.2022.pdf">
+            PDF ansehen
+          </button>
+        </div>
+        <div class="cert-card" data-title="fos praktikum rewe">
+          <div class="cert-preview">
+            <img
+              src="assets/img/Vorschaubild_Rewe.png"
+              alt="Vorschau FOS Praktikum Rewe (2021–2022)"
+            />
+          </div>
+          <h3>FOS Praktikum Rewe (2021–2022)</h3>
+          <button class="btn" data-pdf="assets/certificates/Rewe_FOS_Praktikum_09.2021–09.2022.pdf">
+            PDF ansehen
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- 🎓 Schülerpraktika (ohne Vorschaubild) -->
+    <section class="cert-section">
+      <h2 class="cert-category">🎓 Schülerpraktika</h2>
+      <div class="cert-grid">
+        <div class="cert-card no-preview" data-title="edeka schülerpraktikum">
+          <h3>Edeka (2019)</h3>
+          <button class="btn" data-pdf="assets/certificates/Edeka_Schülerpraktikum_07.2019.pdf">
+            PDF ansehen
+          </button>
+        </div>
+        <div class="cert-card no-preview" data-title="opel schülerpraktikum">
+          <h3>Opel (2016)</h3>
+          <button class="btn" data-pdf="assets/certificates/Opel_Schülerpraktikum_11.2016.pdf">
+            PDF ansehen
+          </button>
+        </div>
+        <div class="cert-card no-preview" data-title="englisch bob">
+          <h3>BOB – Englisch (2017)</h3>
+          <button class="btn" data-pdf="assets/certificates/Englisch_BOB_2017.pdf">
+            PDF ansehen
+          </button>
+        </div>
+        <div class="cert-card no-preview" data-title="apotheke schülerpraktikum">
+          <h3>Apotheke (Schülerpraktikum 11.2018)</h3>
+          <button class="btn" data-pdf="assets/certificates/Apotheke_Schülerpraktikum_11.2018.pdf">
+            PDF ansehen
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Lightbox für PDF -->
+    <div class="lightbox-overlay" id="lightbox">
+      <div class="lightbox-content">
+        <button class="lightbox-close" id="lightboxClose">Schließen</button>
+        <iframe id="lightboxFrame" src=""></iframe>
+      </div>
+    </div>
+  </main>
+
+  <script>
+    // Dark Mode beim Laden anwenden
+    const toggle = document.getElementById("darkModeToggle");
+    if (localStorage.getItem("darkMode") === "true") {
+      document.body.classList.add("dark");
+    }
+    toggle.addEventListener("click", () => {
+      document.body.classList.toggle("dark");
+      localStorage.setItem(
+        "darkMode",
+        document.body.classList.contains("dark")
+      );
+    });
+
+    // Suche
+    document.getElementById("searchInput").addEventListener("input", function () {
+      const search = this.value.toLowerCase();
+      document.querySelectorAll(".cert-card").forEach((card) => {
+        card.classList.toggle(
+          "hidden",
+          !card.getAttribute("data-title").includes(search)
+        );
+      });
+    });
+
+    // Lightbox
+    const lightbox = document.getElementById("lightbox");
+    const frame = document.getElementById("lightboxFrame");
+
+    document.querySelectorAll(".cert-card .btn").forEach((btn) => {
+      btn.addEventListener("click", () => {
+        frame.src = btn.getAttribute("data-pdf");
+        lightbox.classList.add("active");
+      });
+    });
+
+    document.getElementById("lightboxClose").addEventListener("click", () => {
+      lightbox.classList.remove("active");
+      frame.src = "";
+    });
+
+    lightbox.addEventListener("click", (e) => {
+      if (e.target === lightbox) {
+        lightbox.classList.remove("active");
+        frame.src = "";
+      }
+    });
+  </script>
+</body>
+</html>

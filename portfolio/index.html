@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Eray Yasar – Portfolio</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <nav>
+    <ul>
+      <li><a href="index.html">Start</a></li>
+      <li><a href="certifications.html">Zertifikate</a></li>
+      <li><a href="projects.html">Projekte</a></li>
+      <li><a href="contact.html">Kontakt</a></li>
+    </ul>
+    <button id="darkModeToggle">🌙</button>
+  </nav>
+
+  <section class="hero">
+    <img src="assets/img/ErayYasar_Bild.jpg" alt="Profilbild" class="profile-pic" />
+    <h1>Eray Yasar</h1>
+    <h2>Dualer Student Wirtschaftsinformatik @ Deutsche Telekom</h2>
+
+    <div class="highlight-box">
+      <img src="assets/img/Aktentasche_icon.png" class="icon-light" alt="Business" />
+      <img src="assets/img/dark_Aktentasche_icon.png" class="icon-dark" alt="Business" />
+      <span>Erfahrung in der Vertriebskoordination & Interesse an IT-Prozessen</span>
+    </div>
+
+    <div class="highlight-box">
+      <img src="assets/img/programmieren_icon.svg" class="icon-light" alt="Programmierkenntnisse" />
+      <img src="assets/img/dark_programmieren_icon.png" class="icon-dark" alt="Programmierkenntnisse" />
+      <span>Grundkenntnisse in Python, weitere Sprachen wie C, Java & SQL aus dem Studium bekannt</span>
+    </div>
+
+    <div class="highlight-box">
+      <img src="assets/img/lernen_icon.png" class="icon-light" alt="Lernbereitschaft" />
+      <img src="assets/img/dark_lernen_icon.png" class="icon-dark" alt="Lernbereitschaft" />
+      <span>Strukturiert, präsentationssicher & lernbereit in technischen Themen</span>
+    </div>
+
+    <div class="social-links">
+      <a href="mailto:eray.yasar@gmx.de" target="_blank">
+        <img src="assets/img/hell_email_icon.png" class="icon icon-light" alt="E-Mail" />
+        <img src="assets/img/dark_email_icon.png" class="icon icon-dark" alt="E-Mail" />
+      </a>
+      <a href="https://www.linkedin.com/in/eray-yasar" target="_blank">
+        <img src="assets/img/linkedin_icon.png" class="linkedin-icon" alt="LinkedIn" />
+      </a>
+    </div>
+  </section>
+
+  <section class="cv-section section-container">
+    <h2>Lebenslauf</h2>
+    <div class="cv-image-container">
+      <a href="ErayYasar_Lebenslauf.pdf" target="_blank">
+        <img src="assets/img/Lebenslauf_vorschau.png" alt="Lebenslauf Vorschau" />
+      </a>
+    </div>
+    <div style="text-align: center; margin-top: 1.5rem;">
+      <a class="download-btn" href="ErayYasar_Lebenslauf.pdf" download>
+        📄 Lebenslauf als PDF herunterladen
+      </a>
+    </div>
+  </section>
+
+  <section class="section-container">
+    <h2>Was mich auszeichnet</h2>
+    <p><strong>Analytisch & strukturiert:</strong> Ich erkenne Zusammenhänge schnell und arbeite gerne mit klaren Abläufen.</p>
+    <p><strong>Kommunikationsstark:</strong> In Präsentationen oder Teammeetings kann ich sicher auftreten und mein Wissen verständlich weitergeben.</p>
+    <p><strong>Eigenständig & organisiert:</strong> Ich plane Aufgaben selbstständig, behalte auch bei parallelen Projekten den Überblick und finde mich schnell in neue Tools ein.</p>
+    <p><strong>Digital kompetent:</strong> Ich arbeite sicher mit MS Office (v. a. Excel & PowerPoint) und interessiere mich für moderne Tools, Datenverarbeitung und digitale Prozesse.</p>
+  </section>
+
+  <script>
+    const toggle = document.getElementById("darkModeToggle");
+    const isDark = localStorage.getItem("darkMode") === "true";
+
+    if (isDark) document.body.classList.add("dark");
+
+    toggle.addEventListener("click", () => {
+      document.body.classList.toggle("dark");
+      localStorage.setItem("darkMode", document.body.classList.contains("dark"));
+    });
+  </script>
+</body>
+</html>
