@@ -570,6 +570,10 @@ body {
 }
 
 @media (max-width: 768px) {
+  body.certifications {
+    padding-top: 260px;
+  }
+
   body {
     padding-top: 240px;
   }
