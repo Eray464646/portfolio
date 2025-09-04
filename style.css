@@ -595,3 +595,45 @@ body.dark .lightbox-content {
     margin: 10px auto 0;
   }
 }
+/* --- Mobile Fix: Navigation & Dark-Mode-Button wirklich zentrieren (iOS/Safari-safe) --- */
+@media (max-width: 768px) {
+  /* Global safer sizing mobil */
+  *, *::before, *::after { box-sizing: border-box; }
+
+  nav {
+    display: block;            /* statt Flex für klare Block-Zentrierung */
+    text-align: center;        /* Basiszentrierung */
+    padding: 0.5rem 1rem;
+  }
+
+  nav ul {
+    display: block;
+    width: 100%;
+    max-width: 480px;          /* optische Breite der Button-Spalte */
+    margin: 0 auto;            /* wirklich mittig */
+    padding: 0;                /* Standard-Padding entfernen */
+    -webkit-padding-start: 0;  /* iOS/Safari */
+  }
+
+  nav li {
+    display: block;
+    margin: 0.35rem auto;      /* jedes Item mittig */
+    width: 100%;
+    border-radius: 14px;
+    background-color: rgba(255, 255, 255, 0.1);
+    padding: 0.5rem 1rem;
+  }
+
+  nav a {
+    display: block;
+    text-align: center;
+  }
+
+  /* Dark-Mode-Button unter der Liste mittig */
+  #darkModeToggle {
+    display: block !important;
+    margin: 10px auto 0 !important;
+  }
+}
+
+
