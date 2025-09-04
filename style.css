@@ -1,759 +1,655 @@
-/* =============================================================================
-   Global Theme: Telekom Magenta Portfolio
-   - Light & Dark Mode
-   - Responsive Navigation (mobile centered)
-   - Cards, Forms, Search, Lightbox
-   - Accessible focus styles
-   ========================================================================== */
-
-/* ------------------------------
-   CSS Reset (modern base)
-   ------------------------------ */
-*,
-*::before,
-*::after {
-    box-sizing: border-box;
-}
-
-html {
-    -webkit-text-size-adjust: 100%;
-    text-rendering: optimizeLegibility;
-    font-size: 16px;              /* Base for rem calculations */
-    scroll-behavior: smooth;      /* Smooth anchor scrolling */
-}
-
+/* Grundlayout */
 body {
-    margin: 0;
-    padding: 0;
-    font-family: system-ui, -apple-system, "Segoe UI", Roboto, Ubuntu, "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji", "Segoe UI Emoji";
-    line-height: 1.6;
-    color: #222;                   /* default text */
-    background-color: #f5f5f7;     /* very light gray (per requirement) */
-}
-
-/* Remove default margins for headings/paragraphs to control rhythm */
-h1, h2, h3, h4, h5, h6,
-p {
-    margin: 0 0 0.75rem 0;
-}
-
-/* Links */
-a {
-    color: #e20074;                /* Magenta */
-    text-decoration: none;
-}
-
-a:hover,
-a:focus {
-    text-decoration: underline;
-}
-
-/* Focus ring for accessibility */
-:focus-visible {
-    outline: 3px solid #e20074;
-    outline-offset: 2px;
-}
-
-/* ------------------------------
-   Theme Variables
-   ------------------------------ */
-:root {
-    /* Brand */
-    --magenta: #e20074;
-    --magenta-600: #c00062;
-    --magenta-700: #99004f;
-
-    /* Surface & text */
-    --bg: #f5f5f7;                 /* page background */
-    --surface: #ffffff;            /* cards / blocks */
-    --text: #222222;               /* primary text */
-    --text-muted: #666666;         /* secondary text */
-    --border: #e9e9ee;             /* subtle borders */
-
-    /* Shadows & radii */
-    --shadow-sm: 0 2px 8px rgba(0,0,0,.08);
-    --shadow-md: 0 6px 18px rgba(0,0,0,.12);
-    --radius-sm: 10px;
-    --radius-md: 16px;
-    --radius-lg: 22px;
-
-    /* Layout */
-    --content-max: 1100px;
-    --gap: 20px;
-}
-
-/* Dark Mode variables override */
-:root.dark {
-    --bg: #0f1115;
-    --surface: #151821;
-    --text: #e8e8ea;
-    --text-muted: #a9afbd;
-    --border: #252a36;
-    --shadow-sm: 0 2px 10px rgba(0,0,0,.35);
-    --shadow-md: 0 8px 22px rgba(0,0,0,.45);
-}
-
-/* Apply variables */
-body {
-    background-color: var(--bg);
-    color: var(--text);
-}
-
-/* ------------------------------
-   Layout Containers
-   ------------------------------ */
-.container {
-    width: 100%;
-    max-width: var(--content-max);
-    margin: 0 auto;
-    padding: 0 16px;
-}
-
-.section {
-    padding: 40px 0;
-}
-
-/* ------------------------------
-   Header / Navigation (Desktop)
-   ------------------------------ */
-.header {
-    background: var(--magenta);
-    padding: 14px 0 24px 0;
-    box-shadow: var(--shadow-sm);
-}
-
-/* The nav holds the stacked buttons on mobile and aligned layout on desktop */
-nav.primary-nav {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 12px;
-    flex-wrap: wrap;
-}
-
-/* Button-like nav links */
-.primary-nav a {
-    display: inline-block;
-    background: rgba(255, 255, 255, 0.14);
-    color: #fff;
-    padding: 12px 22px;
-    border-radius: 999px;
-    font-weight: 700;
-    letter-spacing: .3px;
-    box-shadow: inset 0 0 0 2px rgba(255,255,255,0.18);
-    transition: transform .08s ease, background .15s ease, box-shadow .15s ease;
-}
-
-.primary-nav a:hover,
-.primary-nav a:focus {
-    background: rgba(255, 255, 255, 0.22);
-    transform: translateY(-1px);
-}
-
-/* Active page hint (optional class .active) */
-.primary-nav a.active {
-    background: #fff;
-    color: var(--magenta);
-    box-shadow: inset 0 0 0 2px #fff, var(--shadow-sm);
-}
-
-/* ------------------------------
-   Dark Mode Toggle
-   ------------------------------ */
-.dark-mode-wrap {
-    display: flex;
-    justify-content: center;
-    margin-top: 14px;
-}
-
-#darkModeToggle {
-    appearance: none;
-    border: none;
-    cursor: pointer;
-    background: #fff;
-    color: var(--magenta);
-    width: 64px;
-    height: 48px;
-    border-radius: 16px;
-    box-shadow: 0 3px 0 rgba(0,0,0,.25), var(--shadow-sm);
-    font-size: 26px;               /* size for the moon icon */
-    line-height: 48px;
-    text-align: center;
-    transition: transform .08s ease, box-shadow .15s ease, background .15s ease, color .15s ease;
-}
-
-#darkModeToggle:hover {
-    transform: translateY(-1px);
-}
-
-:root.dark #darkModeToggle {
-    background: var(--surface);
-    color: #ffd76a;                /* warm moon color in dark */
-    box-shadow: 0 3px 0 rgba(0,0,0,.35), var(--shadow-sm);
-}
-
-/* ------------------------------
-   Hero / Profile Block
-   ------------------------------ */
-.hero {
-    padding-top: 28px;
-}
-
-.profile-card {
-    background: var(--surface);
-    border-radius: var(--radius-lg);
-    box-shadow: var(--shadow-md);
-    padding: 28px;
-    text-align: center;
-}
-
-.profile-photo {
-    display: block;
-    width: 280px;
-    max-width: 85%;
-    margin: 0 auto 18px auto;
-    border-radius: 14px;
-    box-shadow: var(--shadow-md);
-}
-
-h1.title {
-    font-size: 2.4rem;
-    line-height: 1.2;
-    margin-bottom: 8px;
-}
-
-.subtitle {
-    color: var(--text-muted);
-    font-size: 1.05rem;
-    max-width: 700px;
-    margin: 0.5rem auto 0 auto;
-}
-
-/* ------------------------------
-   Highlight Box (section header)
-   ------------------------------ */
-.highlight-box {
-    background: var(--surface);
-    border-radius: var(--radius-lg);
-    box-shadow: var(--shadow-md);
-    padding: 16px 20px;
-    margin: 26px 0 18px 0;
-    position: relative;
-}
-
-.highlight-box::before {
-    content: "";
-    position: absolute;
-    left: 0;
-    top: 12px;
-    bottom: 12px;
-    width: 6px;
-    border-radius: 6px;
-    background: var(--magenta);
-}
-
-.highlight-title {
-    font-size: 2rem;
-    font-weight: 800;
-    margin-left: 16px;
-}
-
-/* ------------------------------
-   Search Input
-   ------------------------------ */
-.search-wrap {
-    margin: 14px 0 22px 0;
-}
-
-.search-input {
-    width: 100%;
-    background: var(--surface);
-    color: var(--text);
-    border: 1px solid var(--border);
-    border-radius: var(--radius-md);
-    padding: 14px 16px;
-    font-size: 1rem;
-    box-shadow: var(--shadow-sm);
-    transition: border-color .15s ease, box-shadow .15s ease;
-}
-
-.search-input::placeholder {
-    color: var(--text-muted);
-}
-
-.search-input:focus {
-    border-color: var(--magenta);
-    box-shadow: 0 0 0 4px rgba(226, 0, 116, 0.15);
-    outline: none;
-}
-
-/* ------------------------------
-   Cards (Certificates / Projects)
-   ------------------------------ */
-.grid {
-    display: grid;
-    gap: 18px;
-}
-
-.grid.cols-3 {
-    grid-template-columns: repeat(3, 1fr);
-}
-
-.grid.cols-2 {
-    grid-template-columns: repeat(2, 1fr);
-}
-
-.card {
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: var(--radius-md);
-    box-shadow: var(--shadow-sm);
-    padding: 16px;
-    transition: transform .08s ease, box-shadow .15s ease, border-color .15s ease;
-}
-
-.card:hover,
-.card:focus-within {
-    transform: translateY(-2px);
-    border-color: rgba(226, 0, 116, 0.45);
-    box-shadow: var(--shadow-md);
-}
-
-.card-header {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    margin-bottom: 10px;
-}
-
-.card-title {
-    font-weight: 800;
-    font-size: 1.15rem;
-}
-
-.card-meta {
-    color: var(--text-muted);
-    font-size: 0.92rem;
-}
-
-.card-body {
-    margin-top: 8px;
-    color: var(--text);
-}
-
-.card-actions {
-    margin-top: 12px;
-    display: flex;
-    gap: 10px;
-    flex-wrap: wrap;
-}
-
-.btn {
-    display: inline-block;
-    background: var(--magenta);
-    color: #fff;
-    padding: 10px 16px;
-    border-radius: 12px;
-    font-weight: 700;
-    box-shadow: var(--shadow-sm);
-    transition: transform .08s ease, background .15s ease, box-shadow .15s ease;
-}
-
-.btn:hover,
-.btn:focus {
-    background: var(--magenta-600);
-    transform: translateY(-1px);
-}
-
-.btn.ghost {
-    background: transparent;
-    color: var(--magenta);
-    box-shadow: inset 0 0 0 2px var(--magenta);
-}
-
-.btn.ghost:hover,
-.btn.ghost:focus {
-    background: rgba(226, 0, 116, 0.08);
-}
-
-/* ------------------------------
-   Lightbox (PDF / Image preview)
-   ------------------------------ */
-.lightbox-backdrop {
-    position: fixed;
-    inset: 0;
-    background: rgba(0,0,0,.55);
-    display: none;                  /* toggled via JS */
-    align-items: center;
-    justify-content: center;
-    padding: 20px;
-    z-index: 1000;
-}
-
-.lightbox-backdrop.is-open {
-    display: flex;
-}
-
-.lightbox-frame {
-    background: var(--surface);
-    border-radius: var(--radius-md);
-    box-shadow: var(--shadow-md);
-    width: min(920px, 94vw);
-    height: min(88vh, 820px);
-    overflow: hidden;
-    border: 1px solid var(--border);
-}
-
-.lightbox-frame iframe,
-.lightbox-frame img {
-    width: 100%;
-    height: 100%;
-    display: block;
-    border: 0;
-}
-
-/* ------------------------------
-   Certifications page tweaks
-   ------------------------------ */
-.cert-badge {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    font-weight: 700;
-    color: var(--magenta);
-}
-
-/* ------------------------------
-   Contact Form
-   ------------------------------ */
-.form {
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: var(--radius-lg);
-    box-shadow: var(--shadow-md);
-    padding: 20px;
-}
-
-.form-row {
-    margin-bottom: 14px;
-}
-
-.label {
-    display: block;
-    font-weight: 700;
-    margin-bottom: 6px;
-}
-
-.input,
-.textarea {
-    width: 100%;
-    background: var(--surface);
-    color: var(--text);
-    border: 1px solid var(--border);
-    border-radius: 12px;
-    padding: 12px 14px;
-    font-size: 1rem;
-    transition: border-color .15s ease, box-shadow .15s ease;
-    box-shadow: var(--shadow-sm);
-}
-
-.textarea {
-    min-height: 140px;
-    resize: vertical;
-}
-
-.input::placeholder,
-.textarea::placeholder {
-    color: var(--text-muted);
-}
-
-.input:focus,
-.textarea:focus {
-    border-color: var(--magenta);
-    box-shadow: 0 0 0 4px rgba(226, 0, 116, 0.15);
-    outline: none;
-}
-
-/* Submit */
-.form .actions {
-    margin-top: 10px;
-}
-
-/* ------------------------------
-   Footer
-   ------------------------------ */
-.footer {
-    padding: 28px 0;
-    text-align: center;
-    color: var(--text-muted);
-}
-
-/* ------------------------------
-   Icons
-   ------------------------------ */
-.icon {
-    width: 48px;
-    height: 48px;
-}
-
-.linkedin-icon {
-    width: 38px;
-    height: 38px;
-}
-
-.social-links {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 14px;
-    margin-top: 12px;
-}
-
-.social-links a {
-    display: inline-flex;
-    width: 56px;
-    height: 56px;
-    align-items: center;
-    justify-content: center;
-    border-radius: 16px;
-    background: var(--surface);
-    border: 1px solid var(--border);
-    box-shadow: var(--shadow-sm);
-    transition: transform .08s ease, box-shadow .15s ease, border-color .15s ease;
-}
-
-.social-links a:hover,
-.social-links a:focus {
-    transform: translateY(-1px);
-    border-color: rgba(226,0,116,.45);
-    box-shadow: var(--shadow-md);
-}
-
-/* ------------------------------
-   Utilities
-   ------------------------------ */
-.mt-0 { margin-top: 0; }
-.mt-1 { margin-top: 6px; }
-.mt-2 { margin-top: 12px; }
-.mt-3 { margin-top: 18px; }
-.mt-4 { margin-top: 24px; }
-
-.mb-0 { margin-bottom: 0; }
-.mb-1 { margin-bottom: 6px; }
-.mb-2 { margin-bottom: 12px; }
-.mb-3 { margin-bottom: 18px; }
-.mb-4 { margin-bottom: 24px; }
-
-.text-center { text-align: center; }
-.text-muted { color: var(--text-muted); }
-
-/* ------------------------------
-   Responsive: Desktop defaults
-   (already above), then tablet & mobile
-   ------------------------------ */
-
-/* <= 1024px (tablet landscape) */
-@media (max-width: 1024px) {
-    .grid.cols-3 {
-        grid-template-columns: repeat(2, 1fr);
-    }
-}
-
-/* <= 768px (tablet portrait / mobile large) */
-@media (max-width: 768px) {
-
-    /* Center the entire nav and stack items (YOUR REQUEST) */
-    .header {
-        padding: 18px 0 22px 0;
-    }
-
-    nav.primary-nav {
-        flex-direction: column;        /* stack links */
-        align-items: center;           /* center horizontally */
-        justify-content: center;
-        gap: 10px;
-    }
-
-    .primary-nav a {
-        display: block;
-        width: 86%;                    /* full-ish width buttons */
-        max-width: 380px;
-        text-align: center;
-        padding: 14px 18px;
-        border-radius: 14px;           /* a bit less rounded on mobile */
-        background: #ff2a97;           /* solid button on mobile for clearer tap targets */
-        box-shadow: 0 4px 0 rgba(0,0,0,.25);
-    }
-
-    .primary-nav a.active {
-        background: #fff;
-        color: var(--magenta);
-        box-shadow: 0 4px 0 rgba(0,0,0,.25), var(--shadow-sm);
-    }
-
-    /* Center the dark mode toggle exactly under the menu */
-    .dark-mode-wrap {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        margin: 12px auto 0 auto;
-        width: 100%;
-    }
-
-    #darkModeToggle {
-        width: 72px;
-        height: 54px;
-        font-size: 28px;
-        border-radius: 18px;
-    }
-
-    /* Layout tweaks */
-    .grid.cols-3,
-    .grid.cols-2 {
-        grid-template-columns: 1fr;
-    }
-
-    .highlight-title {
-        font-size: 1.7rem;
-    }
-
-    h1.title {
-        font-size: 2rem;
-    }
-
-    .profile-photo {
-        width: 260px;
-    }
-}
-
-/* <= 480px (small phones) */
-@media (max-width: 480px) {
-    .primary-nav a {
-        width: 90%;
-        max-width: 340px;
-        padding: 13px 16px;
-    }
-
-    #darkModeToggle {
-        width: 68px;
-        height: 50px;
-        font-size: 26px;
-    }
-
-    .highlight-title {
-        font-size: 1.55rem;
-    }
-
-    .subtitle {
-        font-size: 1rem;
-    }
-}
-
-/* ------------------------------
-   Print (optional)
-   ------------------------------ */
-@media print {
-    .header,
-    .dark-mode-wrap,
-    .social-links,
-    .lightbox-backdrop {
-        display: none !important;
-    }
-
-    .card,
-    .form,
-    .highlight-box {
-        box-shadow: none !important;
-        border-color: #ddd !important;
-    }
-
-    a {
-        text-decoration: underline;
-    }
-}
-/* ===== Mobile-Only Fix: zentrierte Navigation + Toggle, ohne Desktop zu verändern ===== */
-
-/* Header-Navi: Bullets nur im Header sicher entfernen (schont andere ULs auf der Seite) */
-header nav ul {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #f3f3f6;
+  color: #333;
+  padding-top: 90px;
+}
+
+body.dark {
+  background-color: #121212;
+  color: #eaeaea;
+}
+
+/* Navigation */
+nav {
+  background-color: #e20074;
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+}
+
+
+nav ul {
+  display: flex;
+  gap: 1.5rem;
   list-style: none;
   margin: 0;
   padding: 0;
 }
 
-/* Falls deine Navi keine UL nutzt, schadet das nicht. */
+nav li {
+  border-radius: 14px;
+  background-color: rgba(255, 255, 255, 0.1);
+  padding: 0.5rem 1rem;
+  transition: background-color 0.3s, transform 0.2s;
+}
 
+nav li:hover {
+  background-color: rgba(255, 255, 255, 0.25);
+  transform: translateY(-2px);
+}
+
+nav a {
+  text-decoration: none;
+  color: white;
+  font-weight: bold;
+  display: block;
+}
+
+#darkModeToggle {
+  background-color: #fefefe;
+  border: 2px solid #333;
+  border-radius: 10px;
+  padding: 0.5rem 0.8rem;
+  cursor: pointer;
+  font-size: 1.1rem;
+  transition: all 0.3s;
+}
+
+body.dark #darkModeToggle {
+  background-color: #222;
+  color: white;
+  border-color: white;
+}
+
+/* Hero */
+.hero {
+  text-align: center;
+  padding: 3rem 1rem;
+}
+
+.profile-pic {
+  width: 200px;
+  height: auto;
+  border-radius: 12px;
+  object-fit: contain;
+  margin-bottom: 1rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+h1 {
+  font-size: 2.4rem;
+  margin: 0.5rem 0;
+}
+
+h2 {
+  font-weight: normal;
+  color: #666;
+  margin-bottom: 1.5rem;
+}
+
+/* Highlight-Boxen */
+.highlight-box {
+  display: flex;
+  align-items: center;
+  background-color: #fff;
+  margin: 0.5rem auto;
+  padding: 1rem 1.5rem;
+  border-radius: 12px;
+  max-width: 600px;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.05);
+  text-align: left;
+  border-left: 6px solid #e20074;
+  gap: 0.75rem;
+  transition: transform 0.2s ease;
+}
+
+.highlight-box img {
+  width: 24px;
+  height: 24px;
+}
+
+.highlight-box:hover {
+  transform: scale(1.02);
+}
+
+body.dark .highlight-box {
+  background-color: #1a1a1a;
+  border-left-color: #ff66b2;
+}
+
+/* Social Icons */
+.social-links {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  margin-top: 1.5rem;
+}
+
+.social-links a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 56px;
+  height: 56px;
+}
+
+.icon {
+  width: 48px;
+  height: 48px;
+  object-fit: contain;
+  transition: transform 0.2s ease;
+}
+
+.linkedin-icon {
+  width: 48px;
+  height: 48px;
+}
+
+.icon:hover {
+  transform: scale(1.1);
+}
+
+.icon-dark {
+  display: none;
+}
+
+body.dark .icon-light {
+  display: none;
+}
+
+body.dark .icon-dark {
+  display: inline;
+}
+
+/* Sektionen allgemein */
+.section-container {
+  padding: 3rem 1rem;
+  max-width: 1100px;
+  margin: auto;
+}
+
+.card-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  justify-content: center;
+  margin-top: 2rem;
+}
+
+.card {
+  background-color: #fff;
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  flex: 1 1 280px;
+}
+
+body.dark .card {
+  background-color: #1f1f1f;
+  color: white;
+}
+
+/* Kontaktformular */
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  max-width: 600px;
+  margin: auto;
+}
+
+input,
+textarea {
+  padding: 0.75rem;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  font-size: 1rem;
+}
+
+button {
+  padding: 0.75rem;
+  border: none;
+  border-radius: 6px;
+  background-color: #e20074;
+  color: #fff;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #c20065;
+}
+
+/* Lebenslauf */
+.cv-section h2 {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 2rem;
+}
+
+.cv-image-container {
+  display: flex;
+  justify-content: center;
+}
+
+.cv-image-container img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  cursor: zoom-in;
+}
+
+.download-btn {
+  display: inline-block;
+  padding: 0.75rem 1.5rem;
+  background-color: #333;
+  color: white;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: background-color 0.3s;
+}
+
+.download-btn:hover {
+  background-color: #111;
+}
+
+/* Projekt-Überschrift (seriöse Box) */
+.projekt-headline-clean {
+  background-color: #ffffff;
+  padding: 1.2rem 1.5rem;
+  text-align: center;
+  border-radius: 12px;
+  max-width: 500px;
+  margin: 2rem auto 2.5rem auto;
+  border: 1px solid #ddd;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.06);
+}
+
+.projekt-headline-clean h2 {
+  margin: 0;
+  font-size: 1.75rem;
+  color: #111;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+body.dark .projekt-headline-clean {
+  background-color: #1e1e1e;
+  border-color: #444;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+}
+
+body.dark .projekt-headline-clean h2 {
+  color: #fff;
+}
+
+/* Projektkarten */
+.project-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+  padding: 2rem 1rem;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.project-card {
+  border: 1px solid #ccc;
+  border-radius: 12px;
+  overflow: hidden;
+  background-color: #fff;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  transition: transform 0.2s ease;
+}
+
+.project-card:hover {
+  transform: translateY(-4px);
+}
+
+.project-info {
+  padding: 1.5rem;
+  background-color: #f9f9f9;
+  border-bottom: 1px solid #ddd;
+}
+
+.project-info h3 {
+  margin-bottom: 0.5rem;
+  font-size: 1.25rem;
+  color: #e20074;
+}
+
+.project-info p {
+  margin: 0;
+  color: #333;
+}
+
+.project-card img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+body.dark .project-card {
+  background-color: #1e1e1e;
+  border-color: #444;
+}
+
+body.dark .project-info {
+  background-color: #2a2a2a;
+  border-color: #444;
+}
+
+body.dark .project-info h3 {
+  color: #ff82b2;
+}
+
+body.dark .project-info p {
+  color: #ccc;
+}
+
+/* Responsive */
 @media (max-width: 768px) {
-
-  /* Der Header braucht keine Änderung am Layout, nur saubere Innenzentrierung */
-  header .nav,
-  header nav,
-  .site-header nav,
-  .primary-nav {
-    display: flex;
-    flex-direction: column;     /* Links untereinander */
-    align-items: center;        /* horizontal zentriert */
-    justify-content: center;
-    gap: 10px;                  /* Abstand zwischen Buttons */
-    width: 100%;
-  }
-
-  /* UL im Header-Navi ebenfalls als Flex-Spalte behandeln (falls vorhanden) */
-  header nav ul {
-    display: flex;
+  nav {
     flex-direction: column;
-    align-items: center;
-    gap: 10px;
+    padding: 0.5rem 1rem;
+  }
+
+  nav ul {
+    flex-direction: column;
     width: 100%;
+    gap: 0.5rem;
+    align-items: center;
   }
 
-  /* LI bekommt eine definierte Breite für gleichmäßige Buttons */
-  header nav li {
-    width: 86%;
-    max-width: 380px;
-  }
-
-  /* Links als Buttons – neutral gehalten, damit dein bestehendes Design nicht überschrieben wird */
-  header nav a,
-  .primary-nav a {
-    display: block;
-    width: 86%;
-    max-width: 380px;
+  nav li {
+    width: 100%;
     text-align: center;
-    padding: 14px 18px;
-    border-radius: 14px;
-
-    /* Wichtig: Nur falls du KEINE eigene Button-Optik setzt.
-       Wenn deine Datei bereits Hintergrund/Farben definiert, greifen die durch höhere Spezifität/Order.
-       Diese Zeilen sind bewusst dezent: */
-    background: var(--magenta, #e20074);
-    color: #fff;
-    box-shadow: 0 4px 0 rgba(0,0,0,.12);
   }
 
-  /* Aktiver Link – optional, überschreibt nichts Hartes */
-  header nav a.active,
-  .primary-nav a.active {
-    background: #fff;
-    color: var(--magenta, #e20074);
+  .hero h1 {
+    font-size: 1.8rem;
   }
 
-  /* Dark-Mode-Button exakt mittig unter der Navigation */
-  .dark-mode-wrap,
-  .dark-mode-toggle,
-  #darkModeWrapper {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 12px auto 0 auto;
-    width: 100%;
+  .hero h2 {
+    font-size: 1rem;
   }
 
-  /* Der eigentliche Toggle – nur Größe, keine Farb-Overrides */
-  #darkModeToggle {
-    width: 72px;
-    height: 54px;
-    font-size: 28px;
-    border-radius: 18px;
+  .highlight-box {
+    font-size: 0.95rem;
+    padding: 0.75rem 1rem;
+  }
+
+  .profile-pic {
+    width: 150px;
+  }
+
+  .download-btn {
+    font-size: 0.95rem;
+    padding: 0.6rem 1rem;
   }
 }
 
+/* Zertifikatsbereich */
+.cert-section {
+  margin: 2rem auto;
+  padding: 0 1rem;
+  max-width: 1200px;
+}
+
+.cert-category {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  color: #e20074;
+}
+
+.cert-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.5rem;
+}
+
+.cert-card {
+  background-color: #ffffff;
+  padding: 1rem;
+  border-radius: 1rem;
+  box-shadow: 0 0 10px rgba(0,0,0,0.08);
+  transition: transform 0.3s, background-color 0.3s;
+  overflow: hidden;
+}
+
+.cert-card:hover {
+  transform: scale(1.02);
+}
+
+.cert-card h3 {
+  margin-bottom: 0.5rem;
+}
+
+body.dark .cert-card {
+  background-color: #1f1f1f;
+}
+
+/* Button-Stil */
+.cert-card .btn {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  background-color: #e20074;
+  color: white;
+  border-radius: 0.5rem;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 0.95rem;
+  border: none;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.cert-card .btn:hover {
+  background-color: #c00060;
+}
+
+/* Suchfeld */
+.cert-search {
+  max-width: 500px;
+  margin: 2rem auto;
+  text-align: center;
+}
+
+.cert-search input {
+  width: 100%;
+  padding: 0.6rem;
+  border: 1px solid #ccc;
+  border-radius: 0.5rem;
+  font-size: 1rem;
+  background-color: #fff;
+  color: #000;
+}
+
+body.dark .cert-search input {
+  background-color: #2a2a2a;
+  color: #f5f5f5;
+  border-color: #555;
+}
+
+/* Vorschau-Bilder */
+.cert-preview {
+  width: 100%;
+  height: 180px;
+  overflow: hidden;
+  background: #f5f5f5;
+  border-top-left-radius: 1rem;
+  border-top-right-radius: 1rem;
+}
+
+.cert-preview img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  object-position: top center; /* Anker oben, Bild unten beschneiden */
+}
+
+/* Verberge .cert-preview in Cards mit .no-preview */
+.cert-card.no-preview .cert-preview {
+  display: none;
+}
+
+/* Lightbox PDF-Vorschau */
+.lightbox-overlay {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0, 0, 0, 0.8);
+  justify-content: center;
+  align-items: center;
+}
+
+.lightbox-overlay.active {
+  display: flex;
+}
+
+.lightbox-content {
+  width: 90%;
+  max-width: 960px;
+  height: 90%;
+  background: #fff;
+  border-radius: 10px;
+  overflow: hidden;
+  position: relative;
+}
+
+.lightbox-content iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+body.dark .lightbox-content {
+  background-color: #1e1e1e;
+}
+
+.lightbox-close {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  background: #e20074;
+  color: white;
+  padding: 0.4rem 0.8rem;
+  border: none;
+  font-size: 1rem;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+/* Utility */
+.hidden {
+  display: none !important;
+}
+/* 1) Vorschaubilder zeigen oben an und schneiden unten ab */
+.cert-preview img {
+  object-fit: cover;
+  object-position: top center; /* Anker oben, Bild unten beschneiden */
+}
+
+/* 2) Verberge .cert-preview in Cards mit .no-preview */
+.cert-card.no-preview .cert-preview {
+  display: none;
+}
+
+/* Abstand schaffen, damit Inhalt nicht überdeckt wird */
+body {
+  padding-top: 90px;
+}
+
+/* Responsive Anpassungen */
+@media (max-width: 768px) {
+  body.certifications {
+    padding-top: 320px;
+  }
+
+  body {
+    padding-top: 260px;
+  }
+
+  nav {
+    flex-direction: column;
+    padding: 0.5rem 1rem;
+  }
+
+  nav ul {
+    flex-direction: column;
+    width: 100%;
+    gap: 0.5rem;
+    align-items: center;
+  }
+
+  nav li {
+    width: 100%;
+    text-align: center;
+  }
+
+  .hero h1 {
+    font-size: 1.8rem;
+  }
+
+  .hero h2 {
+    font-size: 1rem;
+  }
+
+  .highlight-box {
+    font-size: 0.95rem;
+    padding: 0.75rem 1rem;
+  }
+
+  .profile-pic {
+    width: 150px;
+  }
+
+  .download-btn {
+    font-size: 0.95rem;
+    padding: 0.6rem 1rem;
+  }
+}
+
+/* Mobile: Navigation & Darkmode-Button exakt zentrieren */
+@media (max-width: 768px) {
+  nav { 
+    flex-direction: column;
+    align-items: stretch;            /* UL volle Breite */
+  }
+
+  nav ul {
+    width: 100%;
+  }
+
+  nav li {
+    width: 90%;
+    max-width: 480px;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  nav a {
+    display: block;
+  }
+
+  #darkModeToggle {
+    display: block;
+    margin: 10px auto 0;
+  }
+}
