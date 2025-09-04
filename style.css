@@ -1,639 +1,627 @@
-/* Grundlayout */
+/* =============================================
+   style.css — Finale Version
+   Author: Eray Yasar / Portfolio
+   Date: 2025-09-04
+   Theme: Telekom-Magenta (#E20074) / Light & Dark
+   Notes:
+   - Einheitliche Navigation (alle Seiten)
+   - Mobile Zentrierung der Nav + Toggle
+   - Dark Mode über body.dark
+   - Highlight-Boxen, Social Icons, CV-Section
+   - Zertifikate-/Projekt-Cards (Grid)
+   - PDF-Lightbox (CSS-only via :target)
+   - Responsives Layout, Druck-Styles
+   ============================================= */
+
+/* ------------------------------
+   0) CSS Reset & Base Variables
+   ------------------------------ */
+* { box-sizing: border-box; }
+*::before, *::after { box-sizing: inherit; }
+html { -webkit-text-size-adjust: 100%; }
+
+:root {
+  /* Brand */
+  --magenta: #E20074;
+  --magenta-dark: #b0005b;
+  --magenta-contrast: #ff4da6;
+
+  /* Greys */
+  --bg: #f5f5f7;
+  --bg-soft: #ffffff;
+  --text: #333333;
+  --muted: #6b7280;
+  --line: #e5e7eb;
+
+  /* Dark */
+  --bg-dark: #1a1a1a;
+  --bg-dark-soft: #2a2a2a;
+  --text-dark: #f5f5f7;
+  --muted-dark: #a3a3a3;
+  --line-dark: #3a3a3a;
+
+  /* UI */
+  --radius: 12px;
+  --radius-lg: 16px;
+  --radius-pill: 9999px;
+  --shadow-sm: 0 1px 3px rgba(0,0,0,0.08);
+  --shadow-md: 0 4px 16px rgba(0,0,0,0.15);
+  --shadow-inset: inset 0 2px 8px rgba(0,0,0,0.15);
+
+  /* Typography */
+  --font-sans: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+  --h1: clamp(2rem, 1.2rem + 2.5vw, 3rem);
+  --h2: clamp(1.5rem, 1rem + 1.5vw, 2rem);
+  --p: 1rem;
+
+  /* Spacing */
+  --gap-1: 4px;
+  --gap-2: 8px;
+  --gap-3: 12px;
+  --gap-4: 16px;
+  --gap-5: 20px;
+  --gap-6: 24px;
+  --gap-8: 32px;
+  --gap-10: 40px;
+}
+
+/* ------------------------------
+   1) Base Styles & Typography
+   ------------------------------ */
 body {
   margin: 0;
-  font-family: 'Segoe UI', sans-serif;
-  background-color: #f3f3f6;
-  color: #333;
-  padding-top: 90px;
+  font-family: var(--font-sans);
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  transition: background .3s ease, color .3s ease;
 }
 
 body.dark {
-  background-color: #121212;
-  color: #eaeaea;
+  background: var(--bg-dark);
+  color: var(--text-dark);
 }
 
-/* Navigation */
+img { max-width: 100%; height: auto; display: block; }
+
+h1, h2, h3 { margin: .5em 0; text-align: center; }
+h1 { font-size: var(--h1); }
+h2 { font-size: var(--h2); }
+h3 { font-size: 1.25rem; }
+
+p { font-size: var(--p); margin: .5rem 0 1rem; }
+
+/* Links */
+a { color: inherit; text-decoration: none; }
+a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visible {
+  outline: 3px solid color-mix(in srgb, var(--magenta) 60%, transparent);
+  outline-offset: 2px;
+  border-radius: 8px;
+}
+
+/* Utilities */
+.container { width: min(1100px, 92%); margin: 0 auto; }
+.center { display: grid; place-items: center; }
+.hidden { display: none !important; }
+.muted { color: var(--muted); }
+
+/* Divider */
+.hr { height: 1px; background: var(--line); margin: var(--gap-8) auto; width: min(900px, 92%); }
+body.dark .hr { background: var(--line-dark); }
+
+/* ------------------------------
+   2) Global Cards & Surfaces
+   ------------------------------ */
+.card {
+  background: var(--bg-soft);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-sm);
+  border: 1px solid var(--line);
+}
+body.dark .card {
+  background: var(--bg-dark-soft);
+  border-color: var(--line-dark);
+}
+
+/* ------------------------------
+   3) Navigation (Unified across pages)
+   ------------------------------ */
 nav {
-  background-color: #e20074;
-  padding: 1rem 2rem;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 2rem;
-  flex-wrap: wrap;
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  z-index: 1000;
-  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+  background: var(--magenta);
+  padding: 12px 0 18px;
+  position: relative;
+  z-index: 50;
 }
 
 nav ul {
-  display: flex;
-  gap: 1.5rem;
   list-style: none;
   margin: 0;
   padding: 0;
+  display: flex;
+  gap: 12px;
+  justify-content: center; /* desktop centered */
+  align-items: center;
+  flex-wrap: wrap;
 }
 
-nav li {
-  border-radius: 14px;
-  background-color: rgba(255, 255, 255, 0.1);
-  padding: 0.5rem 1rem;
-  transition: background-color 0.3s, transform 0.2s;
-}
-
-nav li:hover {
-  background-color: rgba(255, 255, 255, 0.25);
-  transform: translateY(-2px);
-}
+nav li { margin: 0; }
 
 nav a {
-  text-decoration: none;
-  color: white;
-  font-weight: bold;
   display: block;
+  padding: 14px 22px;
+  border-radius: var(--radius-pill);
+  background: rgba(255, 255, 255, 0.18);
+  color: #fff;
+  font-weight: 700;
+  text-decoration: none;
+  box-shadow: var(--shadow-inset), 0 2px 10px rgba(0,0,0,0.08);
+  backdrop-filter: saturate(140%) blur(2px);
+  transition: background .2s ease, transform .1s ease;
 }
 
+nav a:hover { background: rgba(255,255,255,0.28); }
+nav a:active { transform: translateY(1px); }
+
+/* Dark mode nav */
+body.dark nav { background: var(--magenta-dark); }
+
+/* Dark-Mode Toggle Button */
 #darkModeToggle {
-  background-color: #fefefe;
-  border: 2px solid #333;
-  border-radius: 10px;
-  padding: 0.5rem 0.8rem;
+  display: block;
+  margin: 10px auto 0;
+  width: 64px; height: 48px;
+  border-radius: 16px;
+  border: 2px solid rgba(0,0,0,0.35);
+  background: #fff;
+  font-size: 26px;
   cursor: pointer;
-  font-size: 1.1rem;
-  transition: all 0.3s;
+  transition: transform .15s ease, background .25s ease, border-color .25s ease;
 }
-
+#darkModeToggle:hover { transform: translateY(-1px); }
 body.dark #darkModeToggle {
-  background-color: #222;
-  color: white;
-  border-color: white;
+  background: #f2f2f2;
+  border-color: rgba(255,255,255,0.35);
 }
 
-/* Hero */
-.hero {
-  text-align: center;
-  padding: 3rem 1rem;
+/* Mobile centering for nav */
+@media (max-width: 768px) {
+  nav ul { flex-direction: column; align-items: center; }
+  nav li { width: 88%; max-width: 420px; }
+  nav a { width: 100%; text-align: center; }
+  #darkModeToggle { margin-top: 12px; }
 }
 
+/* ------------------------------
+   4) Hero / Header Section
+   ------------------------------ */
+.hero { text-align: center; padding: 2rem 1rem; }
 .profile-pic {
-  width: 200px;
-  height: auto;
-  border-radius: 12px;
-  object-fit: contain;
-  margin-bottom: 1rem;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  width: 180px; height: auto;
+  border-radius: 16px;
+  box-shadow: var(--shadow-md);
+  margin: 0 auto 1rem;
 }
 
-h1 {
-  font-size: 2.4rem;
-  margin: 0.5rem 0;
-}
-
-h2 {
-  font-weight: normal;
-  color: #666;
-  margin-bottom: 1.5rem;
-}
-
-/* Highlight-Boxen */
+/* ------------------------------
+   5) Highlight Boxes
+   ------------------------------ */
 .highlight-box {
-  display: flex;
-  align-items: center;
-  background-color: #fff;
-  margin: 0.5rem auto;
-  padding: 1rem 1.5rem;
-  border-radius: 12px;
-  max-width: 600px;
-  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.05);
-  text-align: left;
-  border-left: 6px solid #e20074;
-  gap: 0.75rem;
-  transition: transform 0.2s ease;
+  display: flex; align-items: center; justify-content: center;
+  gap: 10px;
+  background: var(--bg-soft);
+  border-left: 6px solid var(--magenta);
+  border-radius: var(--radius);
+  padding: 12px 16px;
+  margin: 12px auto;
+  max-width: 700px;
+  box-shadow: var(--shadow-sm);
+  transition: background .3s ease, transform .15s ease;
 }
-
-.highlight-box img {
-  width: 24px;
-  height: 24px;
-}
-
-.highlight-box:hover {
-  transform: scale(1.02);
-}
+.highlight-box:hover { transform: translateY(-2px); }
 
 body.dark .highlight-box {
-  background-color: #1a1a1a;
-  border-left-color: #ff66b2;
+  background: var(--bg-dark-soft);
+  border-left-color: var(--magenta-contrast);
 }
 
-/* Social Icons */
+/* Icons */
+.icon { width: 48px; height: 48px; }
+.linkedin-icon { width: 38px; height: 38px; }
+.icon-light { display: inline; }
+.icon-dark { display: none; }
+body.dark .icon-light { display: none; }
+body.dark .icon-dark { display: inline; }
+
+/* ------------------------------
+   6) Social Links
+   ------------------------------ */
 .social-links {
-  display: flex;
-  justify-content: center;
-  gap: 2rem;
-  margin-top: 1.5rem;
+  margin-top: 1.5rem; display: flex; justify-content: center; gap: 20px;
 }
-
 .social-links a {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 56px;
-  height: 56px;
+  display: inline-flex; justify-content: center; align-items: center;
+  width: 56px; height: 56px; border-radius: 50%;
+  background: var(--bg-soft);
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+  transition: transform .15s ease, box-shadow .25s ease;
 }
+.social-links a:hover { transform: translateY(-2px); box-shadow: 0 8px 22px rgba(0,0,0,0.18); }
+body.dark .social-links a { background: var(--bg-dark-soft); }
 
-.icon {
-  width: 48px;
-  height: 48px;
-  object-fit: contain;
-  transition: transform 0.2s ease;
-}
-
-.linkedin-icon {
-  width: 48px;
-  height: 48px;
-}
-
-.icon:hover {
-  transform: scale(1.1);
-}
-
-.icon-dark {
-  display: none;
-}
-
-body.dark .icon-light {
-  display: none;
-}
-
-body.dark .icon-dark {
-  display: inline;
-}
-
-/* Sektionen allgemein */
-.section-container {
-  padding: 3rem 1rem;
-  max-width: 1100px;
-  margin: auto;
-}
-
-.card-grid {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 2rem;
-  justify-content: center;
-  margin-top: 2rem;
-}
-
-.card {
-  background-color: #fff;
-  border-radius: 12px;
-  padding: 1.5rem;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-  flex: 1 1 280px;
-}
-
-body.dark .card {
-  background-color: #1f1f1f;
-  color: white;
-}
-
-/* Kontaktformular */
-.contact-form {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-  max-width: 600px;
-  margin: auto;
-}
-
-input,
-textarea {
-  padding: 0.75rem;
-  border-radius: 6px;
-  border: 1px solid #ccc;
-  font-size: 1rem;
-}
-
-button {
-  padding: 0.75rem;
-  border: none;
-  border-radius: 6px;
-  background-color: #e20074;
-  color: #fff;
-  font-size: 1rem;
-  cursor: pointer;
-}
-
-button:hover {
-  background-color: #c20065;
-}
-
-/* Lebenslauf */
-.cv-section h2 {
-  text-align: center;
-  font-size: 2rem;
-  margin-bottom: 2rem;
-}
-
-.cv-image-container {
-  display: flex;
-  justify-content: center;
-}
-
+/* ------------------------------
+   7) CV Section & Download Button
+   ------------------------------ */
+.section-container { padding: 2rem 1rem; max-width: 1000px; margin: 0 auto; }
+.cv-section { padding: 2rem 1rem; text-align: center; }
+.cv-image-container { margin-top: 1.5rem; }
 .cv-image-container img {
-  max-width: 100%;
-  height: auto;
-  border-radius: 8px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  cursor: zoom-in;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-md);
+  transition: transform .3s ease, box-shadow .3s ease;
 }
+.cv-image-container img:hover { transform: scale(1.03); box-shadow: 0 8px 30px rgba(0,0,0,0.25); }
 
 .download-btn {
-  display: inline-block;
-  padding: 0.75rem 1.5rem;
-  background-color: #333;
-  color: white;
-  border-radius: 8px;
-  text-decoration: none;
-  font-weight: bold;
-  transition: background-color 0.3s;
+  display: inline-block; padding: 10px 20px;
+  background: var(--magenta); color: #fff; border-radius: 8px; text-decoration: none; font-weight: 700;
+  transition: background .25s ease, transform .15s ease;
+}
+.download-btn:hover { background: #c00061; transform: translateY(-1px); }
+body.dark .download-btn { background: var(--magenta-contrast); color: var(--bg-dark); }
+
+/* ------------------------------
+   8) Forms (Kontakt)
+   ------------------------------ */
+form { width: min(680px, 94%); margin: 0 auto; }
+form .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: var(--gap-4); }
+form .form-group { margin: 8px 0; }
+label { display: block; font-weight: 600; margin-bottom: 6px; }
+
+input[type="text"], input[type="email"], input[type="search"], textarea {
+  width: 100%; padding: 12px; border-radius: 8px;
+  border: 1px solid var(--line);
+  background: var(--bg-soft);
+  color: var(--text);
+  transition: border-color .2s ease, background .2s ease;
+}
+input::placeholder, textarea::placeholder { color: #9ca3af; }
+input:focus, textarea:focus { border-color: color-mix(in srgb, var(--magenta) 55%, #ffffff 45%); }
+
+body.dark input[type="text"], body.dark input[type="email"], body.dark input[type="search"], body.dark textarea {
+  border-color: var(--line-dark); background: var(--bg-dark-soft); color: var(--text-dark);
 }
 
-.download-btn:hover {
-  background-color: #111;
+button, .btn {
+  display: inline-flex; align-items: center; justify-content: center;
+  gap: 8px; padding: 12px 20px; border: 0; border-radius: 8px; cursor: pointer;
+  background: var(--magenta); color: #fff; font-weight: 700;
+  transition: transform .15s ease, background .25s ease, box-shadow .25s ease;
 }
+button:hover, .btn:hover { transform: translateY(-1px); box-shadow: 0 8px 22px rgba(226,0,116,0.25); }
+button:active, .btn:active { transform: translateY(0); }
 
-/* Projekt-Überschrift (seriöse Box) */
-.projekt-headline-clean {
-  background-color: #ffffff;
-  padding: 1.2rem 1.5rem;
-  text-align: center;
-  border-radius: 12px;
-  max-width: 500px;
-  margin: 2rem auto 2.5rem auto;
-  border: 1px solid #ddd;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.06);
+body.dark button, body.dark .btn { background: var(--magenta-contrast); color: var(--bg-dark); }
+
+/* Form messages */
+.form-success { color: #0f9d58; font-weight: 600; }
+.form-error   { color: #d93025; font-weight: 600; }
+
+@media (max-width: 700px) { form .form-row { grid-template-columns: 1fr; } }
+
+/* ------------------------------
+   9) Search field (Zertifikate)
+   ------------------------------ */
+.search-input {
+  width: 100%; padding: 12px 14px; border-radius: 10px;
+  border: 1px solid var(--line);
+  background: var(--bg-soft);
+  color: var(--text);
+  outline: none;
+  transition: border-color .2s ease, box-shadow .2s ease;
 }
-
-.projekt-headline-clean h2 {
-  margin: 0;
-  font-size: 1.75rem;
-  color: #111;
-  font-weight: 600;
-  letter-spacing: 0.5px;
+.search-input:focus {
+  border-color: color-mix(in srgb, var(--magenta) 55%, #fff 45%);
+  box-shadow: 0 0 0 4px color-mix(in srgb, var(--magenta) 15%, transparent);
 }
+body.dark .search-input { border-color: var(--line-dark); background: var(--bg-dark-soft); color: var(--text-dark); }
 
-body.dark .projekt-headline-clean {
-  background-color: #1e1e1e;
-  border-color: #444;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
-}
+/* ------------------------------
+   10) Cards / Grids for Zertifikate & Projekte
+   ------------------------------ */
+.grid { display: grid; gap: var(--gap-6); }
+.card-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--gap-6); }
 
-body.dark .projekt-headline-clean h2 {
-  color: #fff;
-}
+@media (max-width: 1100px) { .card-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 720px)  { .card-grid { grid-template-columns: 1fr; } }
 
-/* Projektkarten */
-.project-wrapper {
-  display: flex;
-  flex-direction: column;
-  gap: 3rem;
-  padding: 2rem 1rem;
-  max-width: 800px;
-  margin: 0 auto;
-}
-
-.project-card {
-  border: 1px solid #ccc;
-  border-radius: 12px;
+.card-item {
+  background: var(--bg-soft);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-sm);
   overflow: hidden;
-  background-color: #fff;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-  transition: transform 0.2s ease;
+  display: flex; flex-direction: column;
+  transition: transform .2s ease, box-shadow .3s ease, border-color .3s ease;
 }
+.card-item:hover { transform: translateY(-3px); box-shadow: 0 10px 28px rgba(0,0,0,0.12); }
+.card-item img { width: 100%; display: block; }
+.card-item .card-body { padding: 14px 16px; }
+.card-item .card-title { font-weight: 800; margin: 6px 0 8px; text-align: left; }
+.card-item .card-meta  { color: var(--muted); font-size: .95rem; }
+.card-item .card-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 10px; }
+.card-item .tag { padding: 6px 10px; border: 1px solid var(--line); border-radius: 999px; font-size: .85rem; }
 
-.project-card:hover {
-  transform: translateY(-4px);
+body.dark .card-item { background: var(--bg-dark-soft); border-color: var(--line-dark); }
+body.dark .card-item .card-meta { color: var(--muted-dark); }
+body.dark .card-item .tag { border-color: var(--line-dark); }
+
+/* Zertifikate spezifisch */
+.cert-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--gap-6); }
+@media (max-width: 1100px) { .cert-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 720px)  { .cert-grid { grid-template-columns: 1fr; } }
+
+.cert-card { position: relative; }
+.cert-card .cert-badge {
+  position: absolute; top: 10px; left: 10px;
+  background: var(--magenta); color: #fff; font-weight: 800; font-size: .8rem;
+  padding: 6px 10px; border-radius: 999px; box-shadow: var(--shadow-sm);
 }
+body.dark .cert-card .cert-badge { background: var(--magenta-contrast); color: var(--bg-dark); }
 
-.project-info {
-  padding: 1.5rem;
-  background-color: #f9f9f9;
-  border-bottom: 1px solid #ddd;
+/* ------------------------------
+   11) Tables (optional)
+   ------------------------------ */
+.table { width: 100%; border-collapse: collapse; border-spacing: 0; }
+.table th, .table td {
+  border: 1px solid var(--line); padding: 10px 12px; text-align: left;
 }
+.table th { background: #fafafa; font-weight: 800; }
+body.dark .table th { background: #232323; }
+body.dark .table th, body.dark .table td { border-color: var(--line-dark); }
 
-.project-info h3 {
-  margin-bottom: 0.5rem;
-  font-size: 1.25rem;
-  color: #e20074;
-}
+/* ------------------------------
+   12) Lightbox (PDF/Image) — CSS only
+   Usage:
+   <a href="#pdf-lightbox" class="lightbox-link">Vorschau</a>
+   <div id="pdf-lightbox" class="lightbox-overlay">
+     <div class="lightbox">
+       <a href="#" class="lightbox-close" aria-label="Close">×</a>
+       <iframe src="ErayYasar_Lebenslauf.pdf" title="Lebenslauf"></iframe>
+     </div>
+   </div>
+   ------------------------------ */
+.lightbox-link { color: var(--magenta); font-weight: 700; text-decoration: underline; }
 
-.project-info p {
-  margin: 0;
-  color: #333;
-}
-
-.project-card img {
-  width: 100%;
-  height: auto;
-  display: block;
-}
-
-body.dark .project-card {
-  background-color: #1e1e1e;
-  border-color: #444;
-}
-
-body.dark .project-info {
-  background-color: #2a2a2a;
-  border-color: #444;
-}
-
-body.dark .project-info h3 {
-  color: #ff82b2;
-}
-
-body.dark .project-info p {
-  color: #ccc;
-}
-
-/* Zertifikatsbereich */
-.cert-section {
-  margin: 2rem auto;
-  padding: 0 1rem;
-  max-width: 1200px;
-}
-
-.cert-category {
-  font-size: 1.5rem;
-  margin-bottom: 1rem;
-  color: #e20074;
-}
-
-.cert-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 1.5rem;
-}
-
-.cert-card {
-  background-color: #ffffff;
-  padding: 1rem;
-  border-radius: 1rem;
-  box-shadow: 0 0 10px rgba(0,0,0,0.08);
-  transition: transform 0.3s, background-color 0.3s;
-  overflow: hidden;
-}
-
-.cert-card:hover {
-  transform: scale(1.02);
-}
-
-.cert-card h3 {
-  margin-bottom: 0.5rem;
-}
-
-body.dark .cert-card {
-  background-color: #1f1f1f;
-}
-
-/* Button-Stil */
-.cert-card .btn {
-  display: inline-block;
-  padding: 0.5rem 1rem;
-  background-color: #e20074;
-  color: white;
-  border-radius: 0.5rem;
-  text-decoration: none;
-  font-weight: bold;
-  font-size: 0.95rem;
-  border: none;
-  cursor: pointer;
-  transition: background 0.3s;
-}
-
-.cert-card .btn:hover {
-  background-color: #c00060;
-}
-
-/* Suchfeld */
-.cert-search {
-  max-width: 500px;
-  margin: 2rem auto;
-  text-align: center;
-}
-
-.cert-search input {
-  width: 100%;
-  padding: 0.6rem;
-  border: 1px solid #ccc;
-  border-radius: 0.5rem;
-  font-size: 1rem;
-  background-color: #fff;
-  color: #000;
-}
-
-body.dark .cert-search input {
-  background-color: #2a2a2a;
-  color: #f5f5f5;
-  border-color: #555;
-}
-
-/* Vorschau-Bilder */
-.cert-preview {
-  width: 100%;
-  height: 180px;
-  overflow: hidden;
-  background: #f5f5f5;
-  border-top-left-radius: 1rem;
-  border-top-right-radius: 1rem;
-}
-
-.cert-preview img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-  object-position: top center; /* Anker oben, Bild unten beschneiden */
-}
-
-/* Verberge .cert-preview in Cards mit .no-preview */
-.cert-card.no-preview .cert-preview {
-  display: none;
-}
-
-/* Lightbox PDF-Vorschau */
 .lightbox-overlay {
-  display: none;
-  position: fixed;
-  z-index: 1000;
-  top: 0; left: 0; right: 0; bottom: 0;
-  background: rgba(0, 0, 0, 0.8);
-  justify-content: center;
-  align-items: center;
+  position: fixed; inset: 0; background: rgba(0,0,0,0.6);
+  opacity: 0; pointer-events: none; transition: opacity .25s ease;
+  z-index: 200;
 }
-
-.lightbox-overlay.active {
-  display: flex;
+.lightbox-overlay:target { opacity: 1; pointer-events: auto; }
+.lightbox {
+  position: absolute; inset: 50% auto auto 50%; transform: translate(-50%, -50%);
+  width: min(1000px, 92%); height: min(80vh, 900px);
+  background: var(--bg-soft); border-radius: var(--radius-lg);
+  box-shadow: 0 30px 50px rgba(0,0,0,0.35);
+  overflow: hidden; display: flex; flex-direction: column;
+  border: 1px solid var(--line);
 }
+body.dark .lightbox { background: var(--bg-dark-soft); border-color: var(--line-dark); }
 
-.lightbox-content {
-  width: 90%;
-  max-width: 960px;
-  height: 90%;
-  background: #fff;
-  border-radius: 10px;
-  overflow: hidden;
-  position: relative;
-}
-
-.lightbox-content iframe {
-  width: 100%;
-  height: 100%;
-  border: none;
-}
-
-body.dark .lightbox-content {
-  background-color: #1e1e1e;
-}
-
+.lightbox iframe { width: 100%; height: 100%; border: 0; background: #fff; }
 .lightbox-close {
-  position: absolute;
-  top: 10px;
-  right: 15px;
-  background: #e20074;
-  color: white;
-  padding: 0.4rem 0.8rem;
-  border: none;
-  font-size: 1rem;
-  cursor: pointer;
-  border-radius: 5px;
+  position: absolute; top: 8px; right: 10px; font-size: 28px; line-height: 1;
+  background: transparent; color: var(--text); text-decoration: none; font-weight: 700;
+}
+body.dark .lightbox-close { color: var(--text-dark); }
+
+/* ------------------------------
+   13) Footer (optional)
+   ------------------------------ */
+footer {
+  padding: 24px 16px; text-align: center; color: var(--muted);
+}
+body.dark footer { color: var(--muted-dark); }
+
+/* ------------------------------
+   14) Animations (micro-interactions)
+   ------------------------------ */
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.fade-in-up { animation: fadeInUp .4s ease both; }
+
+@keyframes pulseSoft {
+  0%, 100% { transform: scale(1); }
+  50%      { transform: scale(1.02); }
+}
+.pulse-soft { animation: pulseSoft 1.8s ease-in-out infinite; }
+
+/* ------------------------------
+   15) Spacing Utilities
+   ------------------------------ */
+.mt-0{margin-top:0}.mt-1{margin-top:4px}.mt-2{margin-top:8px}.mt-3{margin-top:12px}.mt-4{margin-top:16px}.mt-5{margin-top:20px}.mt-6{margin-top:24px}.mt-8{margin-top:32px}.mt-10{margin-top:40px}
+.mb-0{margin-bottom:0}.mb-1{margin-bottom:4px}.mb-2{margin-bottom:8px}.mb-3{margin-bottom:12px}.mb-4{margin-bottom:16px}.mb-5{margin-bottom:20px}.mb-6{margin-bottom:24px}.mb-8{margin-bottom:32px}.mb-10{margin-bottom:40px}
+.pt-0{padding-top:0}.pt-2{padding-top:8px}.pt-4{padding-top:16px}.pt-6{padding-top:24px}.pt-8{padding-top:32px}
+.pb-0{padding-bottom:0}.pb-2{padding-bottom:8px}.pb-4{padding-bottom:16px}.pb-6{padding-bottom:24px}.pb-8{padding-bottom:32px}
+
+/* ------------------------------
+   16) Badges, Pills, Chips
+   ------------------------------ */
+.badge { display: inline-block; padding: 6px 10px; border-radius: 999px; font-weight: 700; font-size: .85rem; }
+.badge.magenta { background: color-mix(in srgb, var(--magenta) 12%, #fff 88%); color: var(--magenta); border: 1px solid color-mix(in srgb, var(--magenta) 30%, #fff 70%); }
+body.dark .badge.magenta { background: color-mix(in srgb, var(--magenta-contrast) 18%, #000 82%); color: var(--magenta-contrast); border-color: color-mix(in srgb, var(--magenta-contrast) 40%, #000 60%); }
+
+/* ------------------------------
+   17) Toasts / Alerts (optional)
+   ------------------------------ */
+.alert {
+  position: relative; padding: 12px 16px; border-radius: var(--radius); border: 1px solid var(--line); background: var(--bg-soft);
+}
+.alert.success { border-color: #a7f3d0; background: #ecfdf5; color: #065f46; }
+.alert.error   { border-color: #fecaca; background: #fef2f2; color: #7f1d1d; }
+.alert.info    { border-color: #bfdbfe; background: #eff6ff; color: #1e3a8a; }
+body.dark .alert { background: var(--bg-dark-soft); border-color: var(--line-dark); }
+
+/* ------------------------------
+   18) Hero Accents (optional)
+   ------------------------------ */
+.hero-accent {
+  width: min(1000px, 92%); margin: 0 auto; padding: 14px 16px;
+  border-left: 6px solid var(--magenta);
+  background: var(--bg-soft); border-radius: var(--radius);
+}
+body.dark .hero-accent { background: var(--bg-dark-soft); border-left-color: var(--magenta-contrast); }
+
+/* ------------------------------
+   19) Breadcrumbs (optional)
+   ------------------------------ */
+.breadcrumbs { display: flex; gap: 8px; align-items: center; color: var(--muted); font-size: .95rem; }
+.breadcrumbs a { color: inherit; text-decoration: underline; }
+
+/* ------------------------------
+   20) Selection & Scrollbar
+   ------------------------------ */
+::selection { background: color-mix(in srgb, var(--magenta) 20%, transparent); }
+
+/* WebKit Scrollbar */
+*::-webkit-scrollbar { width: 10px; height: 10px; }
+*::-webkit-scrollbar-thumb { background-color: color-mix(in srgb, var(--magenta) 35%, #bbb 65%); border-radius: 10px; }
+*::-webkit-scrollbar-track { background: #ececec; }
+body.dark *::-webkit-scrollbar-thumb { background-color: color-mix(in srgb, var(--magenta-contrast) 45%, #444 55%); }
+body.dark *::-webkit-scrollbar-track { background: #1f1f1f; }
+
+/* ------------------------------
+   21) Print Styles
+   ------------------------------ */
+@media print {
+  nav, .social-links, #darkModeToggle, .download-btn, .lightbox-overlay { display: none !important; }
+  body { background: #fff; color: #000; }
+  a { color: #000; text-decoration: underline; }
+  .section-container { max-width: none; padding: 0; }
+  .highlight-box { border-left-color: #000; }
 }
 
-/* Utility */
-.hidden {
-  display: none !important;
+/* ------------------------------
+   22) Extra: Accessibility helpers
+   ------------------------------ */
+.sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0; }
+
+/* ------------------------------
+   23) Extra: Header shadow on scroll (progressive enhancement)
+   (Requires JS to toggle .nav-elevated on body or nav) 
+   ------------------------------ */
+.nav-elevated nav { box-shadow: 0 8px 24px rgba(0,0,0,0.09); }
+
+/* ------------------------------
+   24) Extra: Project tags palette
+   ------------------------------ */
+.tag.magenta { color: var(--magenta); border-color: color-mix(in srgb, var(--magenta) 40%, #fff 60%); background: color-mix(in srgb, var(--magenta) 6%, #fff 94%); }
+.tag.green { color: #0f9d58; border-color: #a7f3d0; background: #ecfdf5; }
+.tag.blue { color: #1e3a8a; border-color: #bfdbfe; background: #eff6ff; }
+.tag.yellow { color: #92400e; border-color: #fde68a; background: #fffbeb; }
+body.dark .tag.magenta { border-color: color-mix(in srgb, var(--magenta-contrast) 40%, #000 60%); background: color-mix(in srgb, var(--magenta-contrast) 16%, #000 84%); }
+body.dark .tag.green { border-color: #065f46; background: #064e3b; color: #d1fae5; }
+body.dark .tag.blue { border-color: #1e3a8a; background: #0b1b4a; color: #dbeafe; }
+body.dark .tag.yellow { border-color: #92400e; background: #3f2d14; color: #fde68a; }
+
+/* ------------------------------
+   25) Extra: Timeline (optional component)
+   ------------------------------ */
+.timeline { position: relative; padding-left: 28px; }
+.timeline::before { content: ""; position: absolute; left: 10px; top: 0; bottom: 0; width: 2px; background: var(--line); }
+.timeline-item { position: relative; margin: 16px 0; }
+.timeline-item::before { content: ""; position: absolute; left: 3px; top: 6px; width: 16px; height: 16px; border-radius: 50%; background: var(--magenta); }
+.timeline-item .title { font-weight: 800; }
+.timeline-item .meta  { color: var(--muted); font-size: .95rem; }
+body.dark .timeline::before { background: var(--line-dark); }
+body.dark .timeline-item::before { background: var(--magenta-contrast); }
+body.dark .timeline-item .meta { color: var(--muted-dark); }
+
+/* ------------------------------
+   26) Extra: Modal (generic)
+   ------------------------------ */
+.modal-backdrop { position: fixed; inset: 0; background: rgba(0,0,0,.55); display: none; z-index: 180; }
+.modal { position: fixed; inset: 50% auto auto 50%; transform: translate(-50%, -50%); width: min(720px, 92%); background: var(--bg-soft); border: 1px solid var(--line); border-radius: var(--radius-lg); box-shadow: 0 22px 40px rgba(0,0,0,.25); display: none; z-index: 200; }
+.modal-header, .modal-body, .modal-footer { padding: 14px 16px; }
+.modal-header { border-bottom: 1px solid var(--line); font-weight: 800; display: flex; justify-content: space-between; align-items: center; }
+.modal-footer { border-top: 1px solid var(--line); display: flex; justify-content: flex-end; gap: 10px; }
+body.dark .modal { background: var(--bg-dark-soft); border-color: var(--line-dark); }
+
+/* Toggle with .is-open */
+.modal.is-open, .modal-backdrop.is-open { display: block; }
+
+/* ------------------------------
+   27) Headings refinements & copy width
+   ------------------------------ */
+.prose { width: min(800px, 92%); margin: 0 auto; }
+.prose p { text-align: left; }
+
+/* ------------------------------
+   28) Nav current state (optional)
+   Add .is-active to the <a> of the current page
+   ------------------------------ */
+nav a.is-active {
+  background: rgba(255,255,255,0.34);
+  box-shadow: 0 0 0 2px rgba(255,255,255,0.22) inset, 0 2px 10px rgba(0,0,0,0.08);
 }
 
-/* Responsive Anpassungen */
-@media (max-width: 768px) {
-  body.certifications {
-    padding-top: 320px;
-  }
+/* ------------------------------
+   29) Hero title spacing adjustments
+   ------------------------------ */
+.hero h1 + h2 { margin-top: 6px; color: var(--muted); font-weight: 500; }
+body.dark .hero h1 + h2 { color: var(--muted-dark); }
 
-  body {
-    padding-top: 260px;
-  }
+/* ------------------------------
+   30) Image masks (optional aesthetic)
+   ------------------------------ */
+.img-soft-round { border-radius: 18px; overflow: hidden; }
+.img-circle { border-radius: 9999px; overflow: hidden; }
 
-  nav {
-    flex-direction: column;
-    padding: 0.5rem 1rem;
-  }
+/* ------------------------------
+   31) Shadows utility
+   ------------------------------ */
+.shadow-sm { box-shadow: var(--shadow-sm); }
+.shadow-md { box-shadow: var(--shadow-md); }
 
-  nav ul {
-    flex-direction: column;
-    width: 100%;
-    gap: 0.5rem;
-    align-items: center;
-  }
+/* ------------------------------
+   32) Lines, rules
+   ------------------------------ */
+.rule { height: 1px; background: var(--line); border: 0; }
+body.dark .rule { background: var(--line-dark); }
 
-  nav li {
-    width: 100%;
-    text-align: center;
-  }
+/* ------------------------------
+   33) Header spacer (if sticky header used)
+   ------------------------------ */
+.header-spacer { height: 64px; }
 
-  .hero h1 {
-    font-size: 1.8rem;
-  }
+/* ------------------------------
+   34) Grid helpers
+   ------------------------------ */
+.grid-2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: var(--gap-6); }
+.grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--gap-6); }
+.grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: var(--gap-6); }
+@media (max-width: 1100px) { .grid-4 { grid-template-columns: repeat(3, 1fr); } }
+@media (max-width: 900px)  { .grid-3, .grid-4 { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 640px)  { .grid-2, .grid-3, .grid-4 { grid-template-columns: 1fr; } }
 
-  .hero h2 {
-    font-size: 1rem;
-  }
+/* ------------------------------
+   35) Code blocks (if needed)
+   ------------------------------ */
+code, pre { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace; }
+pre { background: #0b1020; color: #e2e8f0; padding: 12px 16px; border-radius: 10px; overflow: auto; }
+body.dark pre { background: #0b1020; color: #e2e8f0; }
 
-  .highlight-box {
-    font-size: 0.95rem;
-    padding: 0.75rem 1rem;
-  }
-
-  .profile-pic {
-    width: 150px;
-  }
-
-  .download-btn {
-    font-size: 0.95rem;
-    padding: 0.6rem 1rem;
-  }
+/* ------------------------------
+   36) Accessibility: reduced motion
+   ------------------------------ */
+@media (prefers-reduced-motion: reduce) {
+  * { animation: none !important; transition: none !important; }
 }
 
-/* Mobile: Navigation & Darkmode-Button exakt zentrieren */
-@media (max-width: 768px) {
-  nav { 
-    flex-direction: column;
-    align-items: stretch;            /* UL volle Breite */
-  }
-
-  nav ul {
-    width: 100%;
-  }
-
-  nav li {
-    width: 90%;
-    max-width: 480px;
-    margin: 0 auto;
-    text-align: center;
-  }
-
-  nav a {
-    display: block;
-  }
-
-  #darkModeToggle {
-    display: block;
-    margin: 10px auto 0;
-  }
-}
-/* --- Mobile Fix: Navigation & Dark-Mode-Button wirklich zentrieren (iOS/Safari-safe) --- */
-@media (max-width: 768px) {
-  /* Global safer sizing mobil */
-  *, *::before, *::after { box-sizing: border-box; }
-
-  nav {
-    display: block;            /* statt Flex für klare Block-Zentrierung */
-    text-align: center;        /* Basiszentrierung */
-    padding: 0.5rem 1rem;
-  }
-
-  nav ul {
-    display: block;
-    width: 100%;
-    max-width: 480px;          /* optische Breite der Button-Spalte */
-    margin: 0 auto;            /* wirklich mittig */
-    padding: 0;                /* Standard-Padding entfernen */
-    -webkit-padding-start: 0;  /* iOS/Safari */
-  }
-
-  nav li {
-    display: block;
-    margin: 0.35rem auto;      /* jedes Item mittig */
-    width: 100%;
-    border-radius: 14px;
-    background-color: rgba(255, 255, 255, 0.1);
-    padding: 0.5rem 1rem;
-  }
-
-  nav a {
-    display: block;
-    text-align: center;
-  }
-
-  /* Dark-Mode-Button unter der Liste mittig */
-  #darkModeToggle {
-    display: block !important;
-    margin: 10px auto 0 !important;
-  }
-}
-
-
+/* ------------------------------
+   37) End of file
+   ------------------------------ */
