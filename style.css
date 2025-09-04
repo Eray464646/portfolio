@@ -671,3 +671,89 @@ h1.title {
         text-decoration: underline;
     }
 }
+/* ===== Mobile-Only Fix: zentrierte Navigation + Toggle, ohne Desktop zu verändern ===== */
+
+/* Header-Navi: Bullets nur im Header sicher entfernen (schont andere ULs auf der Seite) */
+header nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* Falls deine Navi keine UL nutzt, schadet das nicht. */
+
+@media (max-width: 768px) {
+
+  /* Der Header braucht keine Änderung am Layout, nur saubere Innenzentrierung */
+  header .nav,
+  header nav,
+  .site-header nav,
+  .primary-nav {
+    display: flex;
+    flex-direction: column;     /* Links untereinander */
+    align-items: center;        /* horizontal zentriert */
+    justify-content: center;
+    gap: 10px;                  /* Abstand zwischen Buttons */
+    width: 100%;
+  }
+
+  /* UL im Header-Navi ebenfalls als Flex-Spalte behandeln (falls vorhanden) */
+  header nav ul {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+  }
+
+  /* LI bekommt eine definierte Breite für gleichmäßige Buttons */
+  header nav li {
+    width: 86%;
+    max-width: 380px;
+  }
+
+  /* Links als Buttons – neutral gehalten, damit dein bestehendes Design nicht überschrieben wird */
+  header nav a,
+  .primary-nav a {
+    display: block;
+    width: 86%;
+    max-width: 380px;
+    text-align: center;
+    padding: 14px 18px;
+    border-radius: 14px;
+
+    /* Wichtig: Nur falls du KEINE eigene Button-Optik setzt.
+       Wenn deine Datei bereits Hintergrund/Farben definiert, greifen die durch höhere Spezifität/Order.
+       Diese Zeilen sind bewusst dezent: */
+    background: var(--magenta, #e20074);
+    color: #fff;
+    box-shadow: 0 4px 0 rgba(0,0,0,.12);
+  }
+
+  /* Aktiver Link – optional, überschreibt nichts Hartes */
+  header nav a.active,
+  .primary-nav a.active {
+    background: #fff;
+    color: var(--magenta, #e20074);
+  }
+
+  /* Dark-Mode-Button exakt mittig unter der Navigation */
+  .dark-mode-wrap,
+  .dark-mode-toggle,
+  #darkModeWrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 12px auto 0 auto;
+    width: 100%;
+  }
+
+  /* Der eigentliche Toggle – nur Größe, keine Farb-Overrides */
+  #darkModeToggle {
+    width: 72px;
+    height: 54px;
+    font-size: 28px;
+    border-radius: 18px;
+  }
+}
+
