@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!DOCTYPE html> 
 <html lang="de">
 <head>
   <meta charset="UTF-8" />
@@ -7,6 +7,7 @@
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
+  <!-- Navigation -->
   <nav>
     <ul>
       <li><a href="index.html">Start</a></li>
@@ -17,6 +18,7 @@
     <button id="darkModeToggle">🌙</button>
   </nav>
 
+  <!-- Hero Section -->
   <section class="hero">
     <img src="assets/img/ErayYasar_Bild.jpg" alt="Profilbild" class="profile-pic" />
     <h1>Eray Yasar</h1>
@@ -28,10 +30,10 @@
       <span>Erfahrung in der Vertriebskoordination & Auftragnehmermanagement</span>
     </div>
 
-     <div class="highlight-box">
+    <div class="highlight-box">
       <img src="assets/img/KPZ.png" class="icon-light" alt="KI" />
       <img src="assets/img/KPZ_dark.png" class="icon-dark" alt="KI" />
-      <span>Interesse an Künstlicher Intelligenz & digitalen Innovationen"</span>
+      <span>Interesse an Künstlicher Intelligenz & digitalen Innovationen</span>
     </div>
 
     <div class="highlight-box">
@@ -57,6 +59,7 @@
     </div>
   </section>
 
+  <!-- Lebenslauf -->
   <section class="cv-section section-container">
     <h2>Lebenslauf</h2>
     <div class="cv-image-container">
@@ -71,14 +74,16 @@
     </div>
   </section>
 
+  <!-- Eigenschaften -->
   <section class="section-container">
     <h2>Was mich auszeichnet</h2>
     <p><strong>Analytisch & strukturiert:</strong> Ich erkenne Zusammenhänge schnell und arbeite gerne mit klaren Abläufen.</p>
     <p><strong>Kommunikationsstark:</strong> In Präsentationen oder Teammeetings kann ich sicher auftreten und mein Wissen verständlich weitergeben.</p>
     <p><strong>Eigenständig & organisiert:</strong> Ich plane Aufgaben selbstständig, behalte auch bei parallelen Projekten den Überblick und finde mich schnell in neue Tools ein.</p>
-    <p><strong>Digital kompetent:</strong> Ich arbeite sicher mit MS Office (v. a. Excel & PowerPoint) und interessiere mich für moderne Tools, Datenverarbeitung und digitale Prozesse.</p>
+    <p><strong>Digital kompetent:</strong> Ich arbeite sicher mit MS Office (v. a. Excel & PowerPoint) und interessiere mich für moderne Tools, Datenverarbeitung und digitale Prozesse.</p>
   </section>
 
+  <!-- Dark Mode Script -->
   <script>
     const toggle = document.getElementById("darkModeToggle");
     const isDark = localStorage.getItem("darkMode") === "true";
@@ -92,6 +97,3 @@
   </script>
 </body>
 </html>
-
-
-
