@@ -202,9 +202,11 @@ body.dark .card {
 
 /* Kontaktformular */
 .contact-wrapper {
+  width: 100%;
   max-width: 800px;
   margin: 2rem auto;
-  padding: 0 2rem;
+  padding: 0 1rem;
+  box-sizing: border-box;
 }
 
 .contact-card {
@@ -213,10 +215,7 @@ body.dark .card {
   padding: 2.5rem;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
   margin: 0 auto;
-}
-
-body.dark .contact-card {
-  background-color: #1f1f1f;
+  width: 100%;
 }
 
 .contact-form {
@@ -280,6 +279,40 @@ body.dark .contact-form input:focus,
 body.dark .contact-form textarea:focus {
   border-color: #ff66b2;
   box-shadow: 0 0 0 2px rgba(255, 102, 178, 0.1);
+}
+
+/* Responsive Anpassungen */
+@media (max-width: 768px) {
+  .contact-wrapper {
+    padding: 0 1rem;
+  }
+  
+  .contact-card {
+    padding: 1.5rem;
+  }
+  
+  .form-group {
+    margin-bottom: 1rem;
+  }
+  
+  .contact-form input,
+  .contact-form textarea {
+    padding: 0.8rem;
+  }
+  
+  .contact-form button {
+    padding: 0.8rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .contact-wrapper {
+    padding: 0 0.8rem;
+  }
+  
+  .contact-card {
+    padding: 1.2rem;
+  }
 }
 
 /* Lebenslauf */
