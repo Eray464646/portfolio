@@ -4,7 +4,6 @@ body {
   font-family: 'Segoe UI', sans-serif;
   background-color: #f3f3f6;
   color: #333;
-  padding-top: 90px;
 }
 
 body.dark {
@@ -21,14 +20,10 @@ nav {
   align-items: center;
   gap: 2rem;
   flex-wrap: wrap;
-  position: fixed;
+  position: sticky;
   top: 0;
-  left: 0;
-  width: 100%;
-  z-index: 1000;
-  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+  z-index: 100;
 }
-
 
 nav ul {
   display: flex;
@@ -403,6 +398,24 @@ body.dark .project-info p {
   }
 }
 
+/* Navigation auf Mobilgeräten zentrieren */
+@media (max-width: 600px) {
+  nav ul {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    margin: 0 auto;
+  }
+  nav ul li {
+    margin: 0.5rem 0;
+  }
+  nav {
+    text-align: center;
+  }
+}
+
 /* Zertifikatsbereich */
 .cert-section {
   margin: 2rem auto;
@@ -500,12 +513,6 @@ body.dark .cert-search input {
   height: 100%;
   object-fit: cover;
   display: block;
-  object-position: top center; /* Anker oben, Bild unten beschneiden */
-}
-
-/* Verberge .cert-preview in Cards mit .no-preview */
-.cert-card.no-preview .cert-preview {
-  display: none;
 }
 
 /* Lightbox PDF-Vorschau */
@@ -569,87 +576,4 @@ body.dark .lightbox-content {
 /* 2) Verberge .cert-preview in Cards mit .no-preview */
 .cert-card.no-preview .cert-preview {
   display: none;
-}
-
-/* Abstand schaffen, damit Inhalt nicht überdeckt wird */
-body {
-  padding-top: 90px;
-}
-
-/* Responsive Anpassungen */
-@media (max-width: 768px) {
-  body.certifications {
-    padding-top: 320px;
-  }
-
-  body {
-    padding-top: 260px;
-  }
-
-  nav {
-    flex-direction: column;
-    padding: 0.5rem 1rem;
-  }
-
-  nav ul {
-    flex-direction: column;
-    width: 100%;
-    gap: 0.5rem;
-    align-items: center;
-  }
-
-  nav li {
-    width: 100%;
-    text-align: center;
-  }
-
-  .hero h1 {
-    font-size: 1.8rem;
-  }
-
-  .hero h2 {
-    font-size: 1rem;
-  }
-
-  .highlight-box {
-    font-size: 0.95rem;
-    padding: 0.75rem 1rem;
-  }
-
-  .profile-pic {
-    width: 150px;
-  }
-
-  .download-btn {
-    font-size: 0.95rem;
-    padding: 0.6rem 1rem;
-  }
-}
-
-/* Mobile: Navigation & Darkmode-Button exakt zentrieren */
-@media (max-width: 768px) {
-  nav { 
-    flex-direction: column;
-    align-items: stretch;            /* UL volle Breite */
-  }
-
-  nav ul {
-    width: 100%;
-  }
-
-  nav li {
-    width: 90%;
-    max-width: 480px;
-    margin: 0 auto;
-    text-align: center;
-  }
-
-  nav a {
-    display: block;
-  }
-
-  #darkModeToggle {
-    display: block;
-    margin: 10px auto 0;
-  }
 }
