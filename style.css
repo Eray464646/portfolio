@@ -344,12 +344,6 @@ body.dark .projekt-headline-clean h2 {
 }
 
 /* Lebenslauf */
-.cv-section h2 {
-  text-align: center;
-  font-size: 2rem;
-  margin-bottom: 2rem;
-}
-
 .cv-image-container {
   display: flex;
   justify-content: center;
