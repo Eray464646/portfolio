@@ -206,16 +206,16 @@ body.dark .card {
 /* Kontaktformular */
 .contact-wrapper {
   width: 100%;
-  max-width: 700px;
+  max-width: 600px; /* Angepasst für bessere Zentrierung */
   margin: 2rem auto;
-  padding: 0;
+  padding: 0 1rem;
   box-sizing: border-box;
 }
 
 .contact-card {
   background-color: #fff;
   border-radius: 12px;
-  padding: 2.5rem;
+  padding: 2rem;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
   margin: 0 auto;
   width: 100%;
@@ -283,21 +283,63 @@ body.dark .contact-form textarea:focus {
   box-shadow: 0 0 0 2px rgba(255, 102, 178, 0.1);
 }
 
+/* Einheitliche Überschriften-Box für alle Seiten */
+.projekt-headline-clean {
+  background-color: #ffffff;
+  padding: 1.2rem 1.5rem;
+  text-align: center;
+  border-radius: 12px;
+  max-width: 500px;
+  margin: 2rem auto 2.5rem auto;
+  border: 1px solid #ddd;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.06);
+  width: calc(100% - 2rem); /* Verhindert Überbreite auf mobilen Geräten */
+}
+
+.projekt-headline-clean h2 {
+  margin: 0;
+  font-size: 1.75rem;
+  color: #111;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+/* Dark Mode Anpassungen */
+body.dark .contact-card {
+  background-color: #1f1f1f;
+}
+
+body.dark .projekt-headline-clean {
+  background-color: #1e1e1e;
+  border-color: #444;
+}
+
+body.dark .projekt-headline-clean h2 {
+  color: #fff;
+}
+
 /* Responsive Anpassungen */
 @media (max-width: 768px) {
   .contact-wrapper {
     padding: 0 1rem;
-    max-width: 100%;
   }
   
   .contact-card {
     padding: 1.5rem;
   }
+  
+  .projekt-headline-clean {
+    margin: 1.5rem 1rem;
+  }
 }
 
 @media (max-width: 480px) {
   .contact-wrapper {
-    padding: 0 0.8rem;
+    padding: 0 1rem;
+  }
+  
+  .projekt-headline-clean {
+    padding: 1rem;
   }
 }
 
@@ -334,36 +376,6 @@ body.dark .contact-form textarea:focus {
 
 .download-btn:hover {
   background-color: #111;
-}
-
-/* Projekt-Überschrift (seriöse Box) */
-.projekt-headline-clean {
-  background-color: #ffffff;
-  padding: 1.2rem 1.5rem;
-  text-align: center;
-  border-radius: 12px;
-  max-width: 500px;
-  margin: 2rem auto 2.5rem auto;
-  border: 1px solid #ddd;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.06);
-}
-
-.projekt-headline-clean h2 {
-  margin: 0;
-  font-size: 1.75rem;
-  color: #111;
-  font-weight: 600;
-  letter-spacing: 0.5px;
-}
-
-body.dark .projekt-headline-clean {
-  background-color: #1e1e1e;
-  border-color: #444;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
-}
-
-body.dark .projekt-headline-clean h2 {
-  color: #fff;
 }
 
 /* Projektkarten */
