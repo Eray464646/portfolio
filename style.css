@@ -201,14 +201,28 @@ body.dark .card {
 }
 
 /* Kontaktformular */
-.contact-card {
-  max-width: 600px;
+.contact-wrapper {
+  max-width: 800px;
   margin: 2rem auto;
-  padding: 2rem;
+  padding: 0 2rem;
+}
+
+.contact-card {
+  background-color: #fff;
+  border-radius: 12px;
+  padding: 2.5rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  margin: 0 auto;
+}
+
+body.dark .contact-card {
+  background-color: #1f1f1f;
 }
 
 .contact-form {
   width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
 }
 
 .form-group {
