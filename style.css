@@ -45,6 +45,12 @@ nav li:hover {
   transform: translateY(-2px);
 }
 
+/* Aktiver Navigationslink */
+nav li.active {
+  background-color: rgba(255, 255, 255, 0.25);
+  transform: translateY(-2px);
+}
+
 nav a {
   text-decoration: none;
   color: white;
