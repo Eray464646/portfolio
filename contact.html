@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kontakt – Eray Yasar</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <nav id="mainNav">
+    <div class="nav-container">
+      <div class="nav-brand">EY</div>
+      <ul>
+        <li><a href="index.html">Start</a></li>
+        <li><a href="certifications.html">Zertifikate</a></li>
+        <li><a href="projects.html">Projekte</a></li>
+        <li class="active"><a href="contact.html">Kontakt</a></li>
+      </ul>
+      <button id="darkModeToggle" aria-label="Dark Mode Toggle">
+        <span class="sun-icon">☀️</span>
+        <span class="moon-icon">🌙</span>
+      </button>
+    </div>
+  </nav>
+
+  <section class="page-hero">
+    <h1>Kontakt</h1>
+    <p>Lass uns in Verbindung treten</p>
+  </section>
+
+  <main class="section-container">
+    <div class="contact-wrapper">
+      <div class="contact-card">
+        <div class="contact-form">
+          <form>
+            <div class="form-group">
+              <input type="text" placeholder="Dein Name" required />
+            </div>
+            <div class="form-group">
+              <input type="email" placeholder="Deine E-Mail" required />
+            </div>
+            <div class="form-group">
+              <textarea placeholder="Deine Nachricht" rows="6" required></textarea>
+            </div>
+            <button type="submit">Nachricht senden</button>
+          </form>
+        </div>
+      </div>
+
+      <!-- Social Media und Kontakt Info -->
+      <div class="contact-info-grid">
+        <div class="info-card">
+          <div class="info-icon">📧</div>
+          <h3>E-Mail</h3>
+          <p>eray.yasar@t-online.de</p>
+          <a href="mailto:eray.yasar@t-online.de" class="info-link">Nachricht schreiben</a>
+        </div>
+        
+        <div class="info-card">
+          <div class="info-icon">💼</div>
+          <h3>LinkedIn</h3>
+          <p>Vernetze dich mit mir</p>
+          <a href="https://de.linkedin.com/in/eray-yasar-104712291" target="_blank" class="info-link">Profil ansehen</a>
+        </div>
+        
+        <div class="info-card">
+          <div class="info-icon">🎓</div>
+          <h3>Status</h3>
+          <p>Dualer Student</p>
+          <span class="status-text">Verfügbar für Projekte</span>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Scroll to Top Button -->
+  <button id="scrollTopBtn" aria-label="Nach oben scrollen">
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+      <polyline points="18 15 12 9 6 15"></polyline>
+    </svg>
+  </button>
+
+  <footer>
+    <div class="footer-content">
+      <p>&copy; 2025 Eray Yasar. Alle Rechte vorbehalten.</p>
+      <p class="footer-subtitle">Erstellt mit ❤️ und viel ☕</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
