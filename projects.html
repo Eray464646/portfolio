@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Meine Projekte – Eray Yasar</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.css" />
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.js"></script>
+</head>
+<body>
+  <nav id="mainNav">
+    <div class="nav-container">
+      <div class="nav-brand">EY</div>
+      <ul>
+        <li><a href="index.html">Start</a></li>
+        <li><a href="certifications.html">Zertifikate</a></li>
+        <li class="active"><a href="projects.html">Projekte</a></li>
+        <li><a href="contact.html">Kontakt</a></li>
+      </ul>
+      <button id="darkModeToggle" aria-label="Dark Mode Toggle">
+        <span class="sun-icon">☀️</span>
+        <span class="moon-icon">🌙</span>
+      </button>
+    </div>
+  </nav>
+
+  <section class="page-hero">
+    <h1>Meine Projekte</h1>
+    <p>Einblicke in meine akademischen und praktischen Arbeiten</p>
+  </section>
+
+  <section class="section-container">
+    <!-- Filter Chips -->
+    <div class="filter-container">
+      <button class="filter-chip active" data-filter="all">Alle</button>
+      <button class="filter-chip" data-filter="cybersecurity">Cybersecurity</button>
+      <button class="filter-chip" data-filter="ki">KI & App-Entwicklung</button>
+      <button class="filter-chip" data-filter="forschung">Forschung</button>
+    </div>
+
+    <!-- Projects Grid -->
+    <div class="projects-grid">
+      <!-- Cybersecurity Projekt -->
+      <article class="project-card-modern" data-category="cybersecurity forschung">
+        <div class="project-thumbnail">
+          <a data-fancybox data-src="assets/projects/Seminararbeit_Cybersecurity.pdf" href="assets/projects/Seminararbeit_Cybersecurity.pdf">
+            <img src="assets/img/vorschaubild_seminar_Cyber.png" alt="Cybersecurity Seminararbeit" />
+            <div class="project-overlay">
+              <span class="view-icon">🔍</span>
+              <span>PDF ansehen</span>
+            </div>
+          </a>
+        </div>
+        <div class="project-content">
+          <div class="project-tags">
+            <span class="tag">Cybersecurity</span>
+            <span class="tag">Forschung</span>
+          </div>
+          <h3>Cybersecurity in der IT-Infrastruktur</h3>
+          <p>Umfassende Analyse moderner Bedrohungen wie Ransomware und Zero-Day-Exploits. Die Arbeit konzentriert sich auf fortschrittliche Schutzmaßnahmen wie Zero Trust Architecture, EDR (Endpoint Detection and Response) und SIEM-Systeme.</p>
+          <div class="project-meta">
+            <div class="meta-item">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                <line x1="16" y1="2" x2="16" y2="6"></line>
+                <line x1="8" y1="2" x2="8" y2="6"></line>
+                <line x1="3" y1="10" x2="21" y2="10"></line>
+              </svg>
+              <span>2024</span>
+            </div>
+            <div class="meta-item">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                <polyline points="14 2 14 8 20 8"></polyline>
+              </svg>
+              <span>Seminararbeit</span>
+            </div>
+          </div>
+          <div class="tech-stack">
+            <span class="tech-badge">Zero Trust</span>
+            <span class="tech-badge">EDR</span>
+            <span class="tech-badge">SIEM</span>
+          </div>
+        </div>
+      </article>
+
+      <!-- Smartwatch App Projekt -->
+      <article class="project-card-modern" data-category="ki">
+        <div class="project-thumbnail">
+          <a data-fancybox data-src="assets/projects/Seminararbeit Smartwatch & Smartphone App.pdf" href="assets/projects/Seminararbeit Smartwatch & Smartphone App.pdf">
+            <img src="assets/img/Vorschaubild_Seminar_App.png" alt="Smartwatch Seminararbeit" />
+            <div class="project-overlay">
+              <span class="view-icon">🔍</span>
+              <span>PDF ansehen</span>
+            </div>
+          </a>
+        </div>
+        <div class="project-content">
+          <div class="project-tags">
+            <span class="tag">KI</span>
+            <span class="tag">App-Entwicklung</span>
+          </div>
+          <h3>KI-gestützte Smartwatch-App zur Gesundheitsüberwachung</h3>
+          <p>Innovative Android-App entwickelt mit KI-Unterstützung (ChatGPT). Die App erfasst Vitaldaten über Wear OS und benachrichtigt automatisch Notfallkontakte bei Auffälligkeiten – inklusive GPS-Standort.</p>
+          <div class="project-meta">
+            <div class="meta-item">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                <line x1="16" y1="2" x2="16" y2="6"></line>
+                <line x1="8" y1="2" x2="8" y2="6"></line>
+                <line x1="3" y1="10" x2="21" y2="10"></line>
+              </svg>
+              <span>2024</span>
+            </div>
+            <div class="meta-item">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                <polyline points="14 2 14 8 20 8"></polyline>
+              </svg>
+              <span>Seminararbeit</span>
+            </div>
+          </div>
+          <div class="tech-stack">
+            <span class="tech-badge">Android Studio</span>
+            <span class="tech-badge">Wear OS</span>
+            <span class="tech-badge">ChatGPT</span>
+            <span class="tech-badge">Java</span>
+          </div>
+        </div>
+      </article>
+    </div>
+
+    <!-- Coming Soon Teaser -->
+    <div class="coming-soon-card">
+      <div class="coming-soon-content">
+        <div class="coming-soon-icon">🚀</div>
+        <h3>Weitere Projekte in Arbeit</h3>
+        <p>Ich arbeite kontinuierlich an neuen spannenden Projekten im Bereich Cybersecurity, KI und Softwareentwicklung.</p>
+        <div class="progress-indicator">
+          <div class="progress-bar"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Scroll to Top Button -->
+  <button id="scrollTopBtn" aria-label="Nach oben scrollen">
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+      <polyline points="18 15 12 9 6 15"></polyline>
+    </svg>
+  </button>
+
+  <footer>
+    <div class="footer-content">
+      <p>&copy; 2025 Eray Yasar. Alle Rechte vorbehalten.</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+  <script>
+    // Project Filter
+    const filterChips = document.querySelectorAll('.filter-chip');
+    const projectCards = document.querySelectorAll('.project-card-modern');
+
+    filterChips.forEach(chip => {
+      chip.addEventListener('click', () => {
+        const filter = chip.dataset.filter;
+        
+        filterChips.forEach(c => c.classList.remove('active'));
+        chip.classList.add('active');
+
+        projectCards.forEach(card => {
+          if (filter === 'all' || card.dataset.category.includes(filter)) {
+            card.style.display = 'block';
+            setTimeout(() => card.classList.add('show'), 10);
+          } else {
+            card.classList.remove('show');
+            setTimeout(() => card.style.display = 'none', 300);
+          }
+        });
+      });
+    });
+  </script>
+</body>
+</html>
