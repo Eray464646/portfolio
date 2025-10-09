@@ -1,0 +1,435 @@
+<!DOCTYPE html> 
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Zertifikate – Eray Yasar</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body class="certifications">
+  <nav id="mainNav">
+    <div class="nav-container">
+      <div class="nav-brand">EY</div>
+      <ul>
+        <li><a href="index.html">Start</a></li>
+        <li class="active"><a href="certifications.html">Zertifikate</a></li>
+        <li><a href="projects.html">Projekte</a></li>
+        <li><a href="contact.html">Kontakt</a></li>
+      </ul>
+      <button id="darkModeToggle" aria-label="Dark Mode Toggle">
+        <span class="sun-icon">☀️</span>
+        <span class="moon-icon">🌙</span>
+      </button>
+    </div>
+  </nav>
+
+  <section class="page-hero">
+    <h1>Meine Zertifikate</h1>
+    <p>Übersicht über meine beruflichen Qualifikationen und Weiterbildungen</p>
+  </section>
+
+  <main>
+    <!-- Suchfeld mit Icon -->
+    <div class="cert-search-container">
+      <div class="search-wrapper">
+        <svg class="search-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="11" cy="11" r="8"></circle>
+          <path d="m21 21-4.35-4.35"></path>
+        </svg>
+        <input
+          type="text"
+          id="searchInput"
+          placeholder="Suche nach Titel, Kategorie oder Organisation..."
+        />
+        <button id="clearSearch" class="clear-btn" style="display: none;">✕</button>
+      </div>
+      <div class="search-results-count"></div>
+    </div>
+
+    <!-- Filter Chips -->
+    <div class="filter-container">
+      <button class="filter-chip active" data-filter="all">
+        Alle <span class="chip-count">10</span>
+      </button>
+      <button class="filter-chip" data-filter="online">
+        📘 Online <span class="chip-count">2</span>
+      </button>
+      <button class="filter-chip" data-filter="freiwillig">
+        🤝 Freiwillig <span class="chip-count">2</span>
+      </button>
+      <button class="filter-chip" data-filter="fos">
+        🏫 FOS <span class="chip-count">2</span>
+      </button>
+      <button class="filter-chip" data-filter="schule">
+        🎓 Schule <span class="chip-count">4</span>
+      </button>
+    </div>
+
+    <!-- 📘 Online-Zertifikate -->
+    <section class="cert-section" data-category="online">
+      <div class="section-header">
+        <h2 class="cert-category">
+          <span class="category-icon">📘</span>
+          Online-Zertifikate (Coursera)
+        </h2>
+        <span class="section-count">2 Zertifikate</span>
+      </div>
+      <div class="cert-grid">
+        <div class="cert-card" data-title="python coursera programming" data-org="coursera">
+          <div class="cert-preview">
+            <img src="assets/img/Vorschaubild_CourseraPython.png" alt="Python (Coursera)" loading="lazy" />
+            <div class="cert-badge">Coursera</div>
+          </div>
+          <div class="cert-body">
+            <h3>Python Programming</h3>
+            <p class="cert-org">Coursera</p>
+            <p class="cert-desc">Grundlagen und fortgeschrittene Konzepte der Python-Programmierung</p>
+            <button class="btn-modern" data-pdf="assets/certificates/Coursera_Python.pdf">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                <polyline points="14 2 14 8 20 8"></polyline>
+              </svg>
+              Zertifikat ansehen
+            </button>
+          </div>
+        </div>
+
+        <div class="cert-card" data-title="cloud analytics google coursera" data-org="coursera">
+          <div class="cert-preview">
+            <img src="assets/img/Vorschaubild_CourseraGoogleCloud.png" alt="Cloud Analytics (Coursera)" loading="lazy" />
+            <div class="cert-badge">Coursera</div>
+          </div>
+          <div class="cert-body">
+            <h3>Cloud Analytics</h3>
+            <p class="cert-org">Google Cloud · Coursera</p>
+            <p class="cert-desc">Datenanalyse und Cloud-Computing mit Google Cloud Platform</p>
+            <button class="btn-modern" data-pdf="assets/certificates/Coursera_Cloud_Analytics.pdf">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                <polyline points="14 2 14 8 20 8"></polyline>
+              </svg>
+              Zertifikat ansehen
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 🤝 Freiwillige Tätigkeiten -->
+    <section class="cert-section" data-category="freiwillig">
+      <div class="section-header">
+        <h2 class="cert-category">
+          <span class="category-icon">🤝</span>
+          Freiwillige Tätigkeiten
+        </h2>
+        <span class="section-count">2 Nachweise</span>
+      </div>
+      <div class="cert-grid">
+        <div class="cert-card" data-title="datev praktikum freiwillig" data-org="datev">
+          <div class="cert-preview">
+            <img src="assets/img/Vorschaubild_DATEV.png" alt="DATEV Praktikum" loading="lazy" />
+            <div class="cert-badge">DATEV</div>
+          </div>
+          <div class="cert-body">
+            <h3>Freiwilliges Praktikum</h3>
+            <p class="cert-org">DATEV eG · August 2023</p>
+            <p class="cert-desc">Einblicke in Softwareentwicklung und IT-Consulting</p>
+            <button class="btn-modern" data-pdf="assets/certificates/DATEV_freiwilligesPraktikum_082023.pdf">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                <polyline points="14 2 14 8 20 8"></polyline>
+              </svg>
+              Nachweis ansehen
+            </button>
+          </div>
+        </div>
+
+        <div class="cert-card" data-title="fssj freiwilliges soziales schuljahr" data-org="fssj">
+          <div class="cert-preview">
+            <img src="assets/img/Vorschaubild_FSSJ.png" alt="FSSJ" loading="lazy" />
+            <div class="cert-badge">FSSJ</div>
+          </div>
+          <div class="cert-body">
+            <h3>Freiwilliges Soziales Schuljahr</h3>
+            <p class="cert-org">FSSJ · 2017</p>
+            <p class="cert-desc">Soziales Engagement und Persönlichkeitsentwicklung</p>
+            <button class="btn-modern" data-pdf="assets/certificates/Fssj_2017.pdf">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                <polyline points="14 2 14 8 20 8"></polyline>
+              </svg>
+              Nachweis ansehen
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 🏫 FOS Praktika -->
+    <section class="cert-section" data-category="fos">
+      <div class="section-header">
+        <h2 class="cert-category">
+          <span class="category-icon">🏫</span>
+          Fachoberschule – Praktika
+        </h2>
+        <span class="section-count">2 Praktika</span>
+      </div>
+      <div class="cert-grid">
+        <div class="cert-card" data-title="fos praktikum schweiger" data-org="schweiger">
+          <div class="cert-preview">
+            <img src="assets/img/Vorschaubild_Schweiger.png" alt="Schweiger Praktikum" loading="lazy" />
+            <div class="cert-badge">Schweiger</div>
+          </div>
+          <div class="cert-body">
+            <h3>FOS Praktikum</h3>
+            <p class="cert-org">Schweiger · Feb–Juli 2022</p>
+            <p class="cert-desc">Praktische Erfahrung im kaufmännischen Bereich</p>
+            <button class="btn-modern" data-pdf="assets/certificates/Schweiger_FOS_Praktikum_022022-072022.pdf">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                <polyline points="14 2 14 8 20 8"></polyline>
+              </svg>
+              Nachweis ansehen
+            </button>
+          </div>
+        </div>
+
+        <div class="cert-card" data-title="fos praktikum rewe einzelhandel" data-org="rewe">
+          <div class="cert-preview">
+            <img src="assets/img/Vorschaubild_Rewe.png" alt="Rewe Praktikum" loading="lazy" />
+            <div class="cert-badge">Rewe</div>
+          </div>
+          <div class="cert-body">
+            <h3>FOS Praktikum</h3>
+            <p class="cert-org">Rewe · Sept 2021–Sept 2022</p>
+            <p class="cert-desc">Einzelhandel und Kundenservice</p>
+            <button class="btn-modern" data-pdf="assets/certificates/Rewe_FOS_Praktikum_092021-092022.pdf">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                <polyline points="14 2 14 8 20 8"></polyline>
+              </svg>
+              Nachweis ansehen
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 🎓 Schülerpraktika -->
+    <section class="cert-section" data-category="schule">
+      <div class="section-header">
+        <h2 class="cert-category">
+          <span class="category-icon">🎓</span>
+          Schülerpraktika
+        </h2>
+        <span class="section-count">4 Praktika</span>
+      </div>
+      <div class="cert-grid compact">
+        <div class="cert-card no-preview compact" data-title="edeka schuelerpraktikum einzelhandel" data-org="edeka">
+          <div class="cert-body-compact">
+            <div class="compact-icon">🛒</div>
+            <div>
+              <h3>Edeka</h3>
+              <p class="cert-org">Schülerpraktikum · Juli 2019</p>
+            </div>
+            <button class="btn-compact" data-pdf="assets/certificates/Edeka_Schulerpraktikum_072019.pdf">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                <polyline points="14 2 14 8 20 8"></polyline>
+              </svg>
+            </button>
+          </div>
+        </div>
+
+        <div class="cert-card no-preview compact" data-title="opel automobilindustrie schuelerpraktikum" data-org="opel">
+          <div class="cert-body-compact">
+            <div class="compact-icon">🚗</div>
+            <div>
+              <h3>Opel</h3>
+              <p class="cert-org">Schülerpraktikum · Nov 2016</p>
+            </div>
+            <button class="btn-compact" data-pdf="assets/certificates/Opel_Schulerpraktikum_112016.pdf">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                <polyline points="14 2 14 8 20 8"></polyline>
+              </svg>
+            </button>
+          </div>
+        </div>
+
+        <div class="cert-card no-preview compact" data-title="englisch bob sprachkurs" data-org="bob">
+          <div class="cert-body-compact">
+            <div class="compact-icon">🗣️</div>
+            <div>
+              <h3>BOB – Englisch</h3>
+              <p class="cert-org">Sprachkurs · 2017</p>
+            </div>
+            <button class="btn-compact" data-pdf="assets/certificates/Englisch_BOB_2017.pdf">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                <polyline points="14 2 14 8 20 8"></polyline>
+              </svg>
+            </button>
+          </div>
+        </div>
+
+        <div class="cert-card no-preview compact" data-title="apotheke pharmazie schuelerpraktikum" data-org="apotheke">
+          <div class="cert-body-compact">
+            <div class="compact-icon">💊</div>
+            <div>
+              <h3>Apotheke</h3>
+              <p class="cert-org">Schülerpraktikum · Nov 2018</p>
+            </div>
+            <button class="btn-compact" data-pdf="assets/certificates/Apotheke_Schulerpraktikum_112018.pdf">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                <polyline points="14 2 14 8 20 8"></polyline>
+              </svg>
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- No Results Message -->
+    <div class="no-results" style="display: none;">
+      <div class="no-results-icon">🔍</div>
+      <h3>Keine Ergebnisse gefunden</h3>
+      <p>Versuche es mit anderen Suchbegriffen oder wähle einen Filter.</p>
+    </div>
+
+    <!-- Lightbox für PDF -->
+    <div class="lightbox-overlay" id="lightbox">
+      <div class="lightbox-content">
+        <button class="lightbox-close" id="lightboxClose" aria-label="Schließen">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="18" y1="6" x2="6" y2="18"></line>
+            <line x1="6" y1="6" x2="18" y2="18"></line>
+          </svg>
+        </button>
+        <iframe id="lightboxFrame" src=""></iframe>
+      </div>
+    </div>
+  </main>
+
+  <!-- Scroll to Top Button -->
+  <button id="scrollTopBtn" aria-label="Nach oben scrollen">
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+      <polyline points="18 15 12 9 6 15"></polyline>
+    </svg>
+  </button>
+
+  <footer>
+    <div class="footer-content">
+      <p>&copy; 2025 Eray Yasar. Alle Rechte vorbehalten.</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+  <script>
+    // Enhanced Search with Results Count
+    const searchInput = document.getElementById("searchInput");
+    const clearSearch = document.getElementById("clearSearch");
+    const resultsCount = document.querySelector('.search-results-count');
+    const noResults = document.querySelector('.no-results');
+    const allCards = document.querySelectorAll(".cert-card");
+
+    function updateResultsCount() {
+      const visibleCards = Array.from(allCards).filter(card => 
+        !card.classList.contains('hidden') && card.offsetParent !== null
+      );
+      const count = visibleCards.length;
+      
+      if (searchInput.value.trim() !== '') {
+        resultsCount.textContent = `${count} ${count === 1 ? 'Ergebnis' : 'Ergebnisse'} gefunden`;
+        resultsCount.style.display = 'block';
+      } else {
+        resultsCount.style.display = 'none';
+      }
+
+      noResults.style.display = count === 0 ? 'flex' : 'none';
+    }
+
+    searchInput.addEventListener("input", function() {
+      const search = this.value.toLowerCase();
+      clearSearch.style.display = search ? 'block' : 'none';
+      
+      allCards.forEach(card => {
+        const title = card.getAttribute("data-title") || '';
+        const org = card.getAttribute("data-org") || '';
+        const text = card.textContent.toLowerCase();
+        const matches = title.includes(search) || org.includes(search) || text.includes(search);
+        card.classList.toggle("hidden", !matches);
+      });
+
+      updateResultsCount();
+    });
+
+    clearSearch.addEventListener('click', () => {
+      searchInput.value = '';
+      clearSearch.style.display = 'none';
+      allCards.forEach(card => card.classList.remove('hidden'));
+      updateResultsCount();
+      searchInput.focus();
+    });
+
+    // Category Filter
+    const filterChips = document.querySelectorAll('.filter-chip');
+    const sections = document.querySelectorAll('.cert-section');
+
+    filterChips.forEach(chip => {
+      chip.addEventListener('click', () => {
+        const filter = chip.dataset.filter;
+        
+        filterChips.forEach(c => c.classList.remove('active'));
+        chip.classList.add('active');
+
+        searchInput.value = '';
+        clearSearch.style.display = 'none';
+
+        if (filter === 'all') {
+          sections.forEach(section => section.style.display = 'block');
+          allCards.forEach(card => card.classList.remove('hidden'));
+        } else {
+          sections.forEach(section => {
+            section.style.display = section.dataset.category === filter ? 'block' : 'none';
+          });
+        }
+
+        updateResultsCount();
+      });
+    });
+
+    // Lightbox
+    const lightbox = document.getElementById("lightbox");
+    const frame = document.getElementById("lightboxFrame");
+
+    document.querySelectorAll(".cert-card .btn-modern, .cert-card .btn-compact").forEach(btn => {
+      btn.addEventListener("click", (e) => {
+        e.preventDefault();
+        frame.src = btn.getAttribute("data-pdf");
+        lightbox.classList.add("active");
+        document.body.style.overflow = 'hidden';
+      });
+    });
+
+    function closeLightbox() {
+      lightbox.classList.remove("active");
+      frame.src = "";
+      document.body.style.overflow = '';
+    }
+
+    document.getElementById("lightboxClose").addEventListener("click", closeLightbox);
+    
+    lightbox.addEventListener("click", (e) => {
+      if (e.target === lightbox) closeLightbox();
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && lightbox.classList.contains('active')) {
+        closeLightbox();
+      }
+    });
+  </script>
+</body>
+</html>
