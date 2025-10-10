@@ -446,7 +446,7 @@ body.dark #darkModeToggle .moon-icon {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: var(--spacing-md);
-  max-width: 1000px;
+  max-width: 750px;
   margin: var(--spacing-xl) auto;
 }
 
@@ -1764,4 +1764,5 @@ footer {
   margin-top: var(--spacing-xs);
 
 }
+
 
