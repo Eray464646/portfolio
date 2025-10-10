@@ -285,7 +285,7 @@ body.dark #darkModeToggle .moon-icon {
 
 .profile-pic {
   width: 240px;
-  height: 240px;
+  height: 290px;
   border-radius: var(--radius-full);
   object-fit: cover;
   border: 4px solid var(--primary-color);
@@ -1764,3 +1764,4 @@ footer {
   margin-top: var(--spacing-xs);
 
 }
+
