@@ -610,7 +610,7 @@ body.dark .icon-dark {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: var(--spacing-lg);
-  max-width: 1200px;
+  max-width: 900px;
   margin: 0 auto;
 }
 
@@ -1764,5 +1764,6 @@ footer {
   margin-top: var(--spacing-xs);
 
 }
+
 
 
